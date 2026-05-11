@@ -1,129 +1,185 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { FaHome, FaBuilding, FaBroom, FaTools } from "react-icons/fa";
 
+/* =========================
+   IMAGE SLIDER COMPONENT
+========================= */
+function ImageSlider({ images }) {
+  const [index, setIndex] = useState(0);
+
+  const labels = ["Before", "After"];
+  const colors = ["bg-red-600", "bg-green-600"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="relative overflow-hidden rounded-t-3xl h-44">
+      {/* SLIDER */}
+      <motion.div
+        className="flex w-full h-full"
+        animate={{ x: `-${index * 100}%` }}
+        transition={{ duration: 0.7, ease: "easeInOut" }}
+      >
+        {images.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            className="w-full h-44 object-cover flex-shrink-0"
+          />
+        ))}
+      </motion.div>
+
+      {/* 🔥 BEFORE / AFTER LABEL */}
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className={`absolute top-2 left-2 text-white text-xs px-3 py-1 rounded-full shadow-lg ${colors[index]}`}
+      >
+        {labels[index]}
+      </motion.div>
+
+      {/* DOT INDICATOR */}
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+        {images.map((_, i) => (
+          <div
+            key={i}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === i ? "w-6 bg-white" : "w-2 bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* =========================
+        SERVICES
+========================= */
 function Services() {
   const whatsappLink =
     "https://wa.me/923137332085?text=Hi%20I%20want%20Capital%20Cleaning%20and%20Maintenance%20service";
 
-  // CLEANING CATEGORY
   const cleaningServices = [
     {
       title: "House Cleaning",
       desc: "Complete home cleaning with trained professionals.",
       icon: <FaHome />,
-      before: "/house-cleaning-b-final.jpg",
-      after: "/house-cleaning-a-final.jpg",
+      images: ["/house-cleaning-b-final.jpg", "/house-cleaning-a-final.jpg"],
     },
     {
       title: "Deep Cleaning",
       desc: "Deep and detailed cleaning for every corner.",
       icon: <FaBroom />,
-      before: "/deep-cleaning-b-final.webp",
-      after: "/deep-cleaning-a-final.webp",
+      images: ["/deep-cleaning-b-final.webp", "/deep-cleaning-a-final.webp"],
     },
     {
       title: "Office Cleaning",
       desc: "Clean and productive workspace.",
       icon: <FaBuilding />,
-      before: "/office-cleaning-b-final.jpg",
-      after: "/office-cleaning-a-final.jpg",
+      images: ["/office-cleaning-b-final.jpg", "/office-cleaning-a-final.jpg"],
     },
   ];
 
-  // MAINTENANCE CATEGORY
   const maintenanceServices = [
     {
       title: "Painting",
       desc: "Wall painting & finishing",
       icon: <FaTools />,
-      before: "/paint-b-final.jpg",
-      after: "/paint-a-final.jpg",
+      images: ["/paint-b-final.jpg", "/paint-a-final.jpg"],
     },
     {
       title: "Plumbing",
       desc: "Leak fixing & pipe work",
       icon: <FaTools />,
-      before: "/plumbring-b-final.jpg",
-      after: "/plumbring-a-final.jpg",
+      images: ["/plumbring-b-final.jpg", "/plumbring-a-final.jpg"],
     },
     {
       title: "Electrical",
       desc: "Wiring & repair work",
       icon: <FaTools />,
-      before: "/electrition-b-final.jpg",
-      after: "/electrition-a-final.webp",
-    },
-    {
-      title: "AC",
-      desc: "AC installation & repair work",
-      icon: <FaTools />,
-      before: "/ac-b-final.webp",
-      after: "/ac-a-final.webp",
+      images: ["/electrition-b-final.jpg", "/electrition-a-final.webp"],
     },
   ];
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.6,
+        type: "spring",
+      },
+    }),
+  };
 
   const renderCard = (service, index) => {
     return (
       <motion.div
         key={index}
-        whileHover={{ y: -10 }}
-        className="bg-white rounded-2xl overflow-hidden shadow-md border"
+        custom={index}
+        variants={cardVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        whileHover={{ scale: 1.05 }}
+        className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition"
       >
-        {/* BEFORE */}
-        <div className="relative h-40">
-          <img
-            src={service.before}
-            alt="before"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded">
-            Before
-          </div>
-        </div>
-
-        {/* AFTER */}
-        <div className="relative h-40">
-          <img
-            src={service.after}
-            alt="after"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded">
-            After
-          </div>
-        </div>
+        {/* IMAGE SLIDER */}
+        <ImageSlider images={service.images} />
 
         {/* CONTENT */}
         <div className="p-5 text-center">
-          <div className="text-3xl text-[#2563EB] mb-2 flex justify-center">
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-3xl text-[#2563EB] flex justify-center mb-2"
+          >
             {service.icon}
-          </div>
+          </motion.div>
 
-          <h3 className="font-semibold">{service.title}</h3>
-          <p className="text-gray-600 text-sm">{service.desc}</p>
+          <h3 className="font-semibold text-lg">{service.title}</h3>
+          <p className="text-gray-600 text-sm mt-1">{service.desc}</p>
 
-          {/* CTA ONLY */}
-          <a
+          <motion.a
             href={whatsappLink}
             target="_blank"
-            className="mt-4 block bg-[#2563EB] text-white px-4 py-2 rounded-lg text-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-4 block bg-[#2563EB] text-white px-4 py-2 rounded-xl text-sm shadow-md hover:bg-blue-700 transition"
           >
             Book Now
-          </a>
+          </motion.a>
         </div>
       </motion.div>
     );
   };
 
   return (
-    <section className="py-10 bg-[#EFF6FF]">
+    <section className="py-16 bg-gradient-to-b from-[#EFF6FF] to-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#111827]">
+        {/* TITLE */}
+        <motion.h2
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-3xl md:text-4xl font-bold text-[#111827]"
+        >
           Our <span className="text-[#2563EB]">Services</span>
-        </h2>
+        </motion.h2>
 
         {/* CLEANING */}
-        <h3 className="mt-7 pl-5 text-left text-2xl font-semibold">
+        <h3 className="mt-10 text-left text-2xl font-semibold">
           Cleaning Services 🧼
         </h3>
 
@@ -132,7 +188,7 @@ function Services() {
         </div>
 
         {/* MAINTENANCE */}
-        <h3 className="mt-10 text-left pl-5 text-2xl font-semibold">
+        <h3 className="mt-14 text-left text-2xl font-semibold">
           Maintenance Services 🛠️
         </h3>
 

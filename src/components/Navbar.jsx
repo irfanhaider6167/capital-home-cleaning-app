@@ -25,19 +25,33 @@ function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm border-b border-gray-100" : "bg-white/95"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+${
+  scrolled
+    ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/40"
+    : "bg-gradient-to-r from-[#EFF6FF] via-white to-[#DBEAFE] backdrop-blur-md"
+}`}
     >
       <div className="px-2 py-6 h-10 flex justify-between items-center max-w-7xl mx-auto">
-        {/* LOGO (compact height reduced) */}
-        <div className="flex items-center">
-          <img
-            src="/favicon-transparent-512.png"
-            alt="logo"
-            className="h-10 w-auto object-contain"
-            style={{ imageRendering: "crisp-edges" }}
-          />
+        {/* PREMIUM LOGO */}
+        <div className="flex flex-col items-center leading-none">
+          <h2 className="text-2xl md:text-3xl font-black text-[#1D4ED8] tracking-[2px] leading-none">
+            CAPITAL
+          </h2>
+
+          <div className="flex items-center justify-center gap-2 mt-0.5">
+            <div className="w-6 h-[2px] bg-[#1D4ED8] rounded-full"></div>
+
+            <p
+              className="text-xs md:text-sm font-extrabold tracking-[5px] leading-none 
+      bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#60A5FA] 
+      text-transparent bg-clip-text"
+            >
+              C&M
+            </p>
+
+            <div className="w-6 h-[2px] bg-[#1D4ED8] rounded-full"></div>
+          </div>
         </div>
 
         {/* DESKTOP MENU */}
@@ -72,8 +86,9 @@ function Navbar() {
         </ul>
 
         {/* MOBILE BUTTON */}
+        {/* MOBILE BUTTON */}
         <button
-          className="md:hidden text-2xl text-gray-700"
+          className="md:hidden text-3xl transition-colors duration-300 text-[#1D4ED8] hover:text-blue-700"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? "✖" : "☰"}
