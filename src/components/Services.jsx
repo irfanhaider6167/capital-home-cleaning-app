@@ -30,7 +30,8 @@ function ImageSlider({ images }) {
         {images.map((img, i) => (
           <img
             key={i}
-            src={img}
+            // src={img}
+            src={`${import.meta.env.BASE_URL}${img}`}
             className="w-full h-44 object-cover flex-shrink-0"
           />
         ))}
@@ -73,19 +74,28 @@ function Services() {
       title: "House Cleaning",
       desc: "Complete home cleaning with trained professionals.",
       icon: <FaHome />,
-      images: ["/house-cleaning-b-final.jpg", "/house-cleaning-a-final.jpg"],
+      images: [
+        "/images/house-cleaning-b-final.jpg",
+        "/images/house-cleaning-a-final.jpg",
+      ],
     },
     {
       title: "Deep Cleaning",
       desc: "Deep and detailed cleaning for every corner.",
       icon: <FaBroom />,
-      images: ["/deep-cleaning-b-final.webp", "/deep-cleaning-a-final.webp"],
+      images: [
+        "/images/deep-cleaning-b-final.webp",
+        "/images/deep-cleaning-a-final.webp",
+      ],
     },
     {
       title: "Office Cleaning",
       desc: "Clean and productive workspace.",
       icon: <FaBuilding />,
-      images: ["/office-cleaning-b-final.jpg", "/office-cleaning-a-final.jpg"],
+      images: [
+        "/images/office-cleaning-b-final.jpg",
+        "/images/office-cleaning-a-final.jpg",
+      ],
     },
   ];
 
@@ -94,19 +104,25 @@ function Services() {
       title: "Painting",
       desc: "Wall painting & finishing",
       icon: <FaTools />,
-      images: ["/paint-b-final.jpg", "/paint-a-final.jpg"],
+      images: ["/images/paint-b-final.jpg", "/images/paint-a-final.jpg"],
     },
     {
       title: "Plumbing",
       desc: "Leak fixing & pipe work",
       icon: <FaTools />,
-      images: ["/plumbring-b-final.jpg", "/plumbring-a-final.jpg"],
+      images: [
+        "/images/plumbring-b-final.jpg",
+        "/images/plumbring-a-final.jpg",
+      ],
     },
     {
       title: "Electrical",
       desc: "Wiring & repair work",
       icon: <FaTools />,
-      images: ["/electrition-b-final.jpg", "/electrition-a-final.webp"],
+      images: [
+        "/images/electrition-b-final.jpg",
+        "/images/electrition-a-final.webp",
+      ],
     },
   ];
 
