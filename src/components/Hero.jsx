@@ -62,7 +62,7 @@ function Hero() {
               {/* CARD */}
               <div className="relative bg-white p-3 md:p-4 rounded-[25px] md:rounded-[35px] shadow-2xl border border-blue-100">
                 <img
-                  src={slides[current].image}
+                  src={`${import.meta.env.BASE_URL}${slides[current].image}`}
                   alt="Cleaning Service"
                   className="rounded-[20px] md:rounded-[25px] w-full h-[320px] sm:h-[400px] md:h-[500px] object-cover"
                 />
