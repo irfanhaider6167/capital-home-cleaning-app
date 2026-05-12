@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState, lazy, Suspense } from "react";
 import FloatingActions from "./components/FloatingActions";
@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <>
       <Toaster />
       <Navbar />
 
@@ -62,7 +62,7 @@ function App() {
 
       <FloatingActions />
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
