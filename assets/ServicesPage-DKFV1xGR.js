@@ -1,1 +1,0 @@
-import{n as e,t}from"./jsx-runtime-C7M7YA1l.js";import{t as n}from"./Services-DvY-Nox2.js";e();var r=t();function i(){return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)(n,{})})}export{i as default};
