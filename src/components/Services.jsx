@@ -23,21 +23,22 @@ function ImageSlider({ images }) {
     <div className="relative overflow-hidden rounded-t-3xl h-44">
       {/* SLIDER */}
       <motion.div
-        className="flex w-full h-full"
+        className="flex h-full w-full"
         animate={{ x: `-${index * 100}%` }}
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         {images.map((img, i) => (
-          <img
-            key={i}
-            // src={img}
-            src={`${import.meta.env.BASE_URL}${img}`}
-            className="w-full h-44 object-cover flex-shrink-0"
-          />
+          <div key={i} className="w-full h-44 flex-shrink-0">
+            <img
+              src={img}
+              className="w-full h-full object-cover"
+              alt="service"
+            />
+          </div>
         ))}
       </motion.div>
 
-      {/* 🔥 BEFORE / AFTER LABEL */}
+      {/* LABEL */}
       <motion.div
         key={index}
         initial={{ opacity: 0, y: -10 }}
@@ -47,7 +48,7 @@ function ImageSlider({ images }) {
         {labels[index]}
       </motion.div>
 
-      {/* DOT INDICATOR */}
+      {/* DOTS */}
       <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
         {images.map((_, i) => (
           <div
@@ -67,7 +68,7 @@ function ImageSlider({ images }) {
 ========================= */
 function Services() {
   const whatsappLink =
-    "https://wa.me/923137332085?text=Hi%20I%20want%20Capital%20Cleaning%20and%20Maintenance%20service";
+    "https://wa.me/923137332085?text=Hi%20I%20want%20Capital%20Cleaning%20service";
 
   const cleaningServices = [
     {
@@ -75,10 +76,8 @@ function Services() {
       desc: "Complete home cleaning with trained professionals.",
       icon: <FaHome />,
       images: [
-        // "/images/house-cleaning-b-final.jpg",
-        `${import.meta.env.BASE_URL + "images/house-cleaning-b-final.jpg"}`,
-        `${import.meta.env.BASE_URL + "images/house-cleaning-a-final.jpg"}`,
-        // "/images/house-cleaning-a-final.jpg",
+        "/images/house-cleaning-b-final.jpg",
+        "/images/house-cleaning-a-final.jpg",
       ],
     },
     {
@@ -122,8 +121,8 @@ function Services() {
       desc: "Wiring & repair work",
       icon: <FaTools />,
       images: [
-        "/images/electrition-b-final.jpg",
         "/images/electrition-a-final.webp",
+        "/images/electrition-b-final.jpg",
       ],
     },
   ];
@@ -142,61 +141,45 @@ function Services() {
     }),
   };
 
-  const renderCard = (service, index) => {
-    return (
-      <motion.div
-        key={index}
-        custom={index}
-        variants={cardVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.05 }}
-        className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition"
-      >
-        {/* IMAGE SLIDER */}
-        <ImageSlider images={service.images} />
+  const renderCard = (service, index) => (
+    <motion.div
+      key={index}
+      custom={index}
+      variants={cardVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.05 }}
+      className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition"
+    >
+      <ImageSlider images={service.images} />
 
-        {/* CONTENT */}
-        <div className="p-5 text-center">
-          <motion.div
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-3xl text-[#2563EB] flex justify-center mb-2"
-          >
-            {service.icon}
-          </motion.div>
-
-          <h3 className="font-semibold text-lg">{service.title}</h3>
-          <p className="text-gray-600 text-sm mt-1">{service.desc}</p>
-
-          <motion.a
-            href={whatsappLink}
-            target="_blank"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-4 block bg-[#2563EB] text-white px-4 py-2 rounded-xl text-sm shadow-md hover:bg-blue-700 transition"
-          >
-            Book Now
-          </motion.a>
+      <div className="p-5 text-center">
+        <div className="text-3xl text-[#2563EB] flex justify-center mb-2">
+          {service.icon}
         </div>
-      </motion.div>
-    );
-  };
+
+        <h3 className="font-semibold text-lg">{service.title}</h3>
+        <p className="text-gray-600 text-sm mt-1">{service.desc}</p>
+
+        <a
+          href={whatsappLink}
+          target="_blank"
+          className="mt-4 block bg-[#2563EB] text-white px-4 py-2 rounded-xl text-sm shadow-md hover:bg-blue-700 transition"
+        >
+          Book Now
+        </a>
+      </div>
+    </motion.div>
+  );
 
   return (
     <section className="py-16 bg-gradient-to-b from-[#EFF6FF] to-white">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        {/* TITLE */}
-        <motion.h2
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-4xl font-bold text-[#111827]"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold text-[#111827]">
           Our <span className="text-[#2563EB]">Services</span>
-        </motion.h2>
+        </h2>
 
-        {/* CLEANING */}
         <h3 className="mt-10 text-left text-2xl font-semibold">
           Cleaning Services 🧼
         </h3>
@@ -205,7 +188,6 @@ function Services() {
           {cleaningServices.map((s, i) => renderCard(s, i))}
         </div>
 
-        {/* MAINTENANCE */}
         <h3 className="mt-14 text-left text-2xl font-semibold">
           Maintenance Services 🛠️
         </h3>

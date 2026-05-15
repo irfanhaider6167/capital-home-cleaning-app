@@ -26,7 +26,7 @@ function Footer() {
           </a>
 
           <a
-            href="mailto:support@capitalcleaning.pk"
+            href="mailto:capitalcleaningservices4@gmail.com"
             className="hover:text-blue-400 transition"
           >
             📧 Email

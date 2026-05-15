@@ -76,14 +76,14 @@ const ContactUs = () => {
 
               {/* EMAIL */}
               <a
-                href="mailto:support@capitalcleaning.pk"
+                href="mailto:capitalcleaningservices4@gmail.com"
                 className="flex items-center gap-3 bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition"
               >
                 <span className="text-blue-600 text-lg">📧</span>
                 <div>
                   <p className="font-medium text-sm">Email Support</p>
                   <p className="text-xs text-gray-500">
-                    support@capitalcleaning.pk
+                    capitalcleaningservices4@gmail.com
                   </p>
                 </div>
               </a>
