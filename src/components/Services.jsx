@@ -75,8 +75,10 @@ function Services() {
       desc: "Complete home cleaning with trained professionals.",
       icon: <FaHome />,
       images: [
-        "/images/house-cleaning-b-final.jpg",
-        "/images/house-cleaning-a-final.jpg",
+        // "/images/house-cleaning-b-final.jpg",
+        `${import.meta.env.BASE_URL + "images/house-cleaning-b-final.jpg"}`,
+        `${import.meta.env.BASE_URL + "images/house-cleaning-a-final.jpg"}`,
+        // "/images/house-cleaning-a-final.jpg",
       ],
     },
     {
