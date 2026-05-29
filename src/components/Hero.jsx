@@ -99,7 +99,7 @@ function Hero() {
             transition={{ duration: 0.6 }}
             className="text-[#2563EB] font-semibold uppercase tracking-[3px] mb-4 text-sm md:text-base"
           >
-            Capital Cleaning & Maintenance
+            Professional Cleaning Services in Islamabad & Rawalpindi
           </motion.p>
 
           {/* TEXT SLIDER */}
