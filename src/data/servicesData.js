@@ -129,6 +129,24 @@ export const services = [
     ],
   },
   {
+    slug: "mattress-cleaning",
+    title: "Mattress Cleaning",
+    desc: "Capital Cleaning & Maintenance offers professional Mattress Cleaning services in Islamabad and Rawalpindi. Our trained team provides deep mattress cleaning to remove dust, stains, bad odors, and allergens using modern cleaning techniques. We help improve mattress hygiene and create a fresh, clean, and healthier sleeping environment for homes and apartments.",
+
+    hero: "images/mattress-after.webp",
+    before: "images/mattress-before.webp",
+    after: "images/mattress-after.webp",
+
+    features: [
+      "Deep Stain Removal",
+      "Dust & Dirt Removal",
+      "Odor Elimination",
+      "Bacteria & Allergen Removal",
+      "Eco-Friendly Cleaning",
+      "Fast Drying Process",
+    ],
+  },
+  {
     slug: "water-tank-cleaning",
     title: "Water Tank Cleaning",
     desc: "Capital Cleaning & Maintenance provides professional Water Tank Cleaning services in Islamabad & Rawalpindi for homes, apartments, offices, schools, hospitals, and commercial buildings. Our skilled team uses advanced equipment and safe cleaning methods to remove sludge, dirt, algae, bacteria, rust, and other harmful contaminants from underground and overhead water tanks. We thoroughly clean and sanitize every tank to help maintain clean, safe, and healthy water for everyday use. Whether you need routine maintenance or a complete water tank cleaning service, we deliver reliable, affordable, and high-quality solutions with a strong commitment to hygiene, safety, and customer satisfaction.",

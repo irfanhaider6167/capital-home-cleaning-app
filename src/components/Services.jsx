@@ -10,6 +10,7 @@ import {
   FaPaintBrush,
   FaWrench,
   FaBolt,
+  FaBed,
 } from "react-icons/fa";
 import { FaRug } from "react-icons/fa6";
 
@@ -112,6 +113,13 @@ function Services() {
       desc: "Capital Cleaning & Maintenance provides professional Sofa Cleaning services in Islamabad & Rawalpindi, removing stains, dust, and odors for a fresh, hygienic sofa.",
       icon: <FaCouch />,
       images: ["/images/sofa-before.webp", "/images/sofa-after.webp"],
+    },
+    {
+      slug: "mattress-cleaning",
+      title: "Mattress Cleaning",
+      desc: "Capital Cleaning & Maintenance provides professional Mattress Cleaning services in Islamabad & Rawalpindi, removing stains, dust, and allergens to ensure a fresh, clean, and healthy sleeping environment",
+      icon: <FaBed />,
+      images: ["/images/mattress-before.webp", "/images/mattress-after.webp"],
     },
     {
       slug: "carpet-cleaning",
