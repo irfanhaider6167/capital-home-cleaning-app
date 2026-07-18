@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { useEffect, useState, lazy, Suspense } from "react";
 import FloatingActions from "./components/FloatingActions";
 import BookingForm from "./components/BookingForm";
+import ServiceDetail from "./pages/ServiceDetail";
 
 // 🔥 LAZY LOADED PAGES
 const Home = lazy(() => import("./pages/Home"));
@@ -45,6 +46,7 @@ function App() {
         <div className="pt-10 min-h-screen">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/service/:slug" element={<ServiceDetail />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />

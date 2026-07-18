@@ -20,8 +20,11 @@ const ContactUs = () => {
         </h1>
 
         <p className="text-gray-500 mt-3 text-sm sm:text-lg">
-          Capital Cleaning & Maintenance — Fast, reliable & affordable services
-          at your doorstep
+          Capital Cleaning & Maintenance provides fast, reliable, and affordable
+          cleaning and maintenance services in Islamabad & Rawalpindi. Book
+          professional sofa cleaning, carpet cleaning, deep cleaning, office
+          cleaning, water tank cleaning, and home maintenance services at your
+          doorstep.
         </p>
 
         {/* WhatsApp CTA */}

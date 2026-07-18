@@ -1,12 +1,25 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaHome, FaBuilding, FaBroom, FaTools } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import {
+  FaHome,
+  FaBuilding,
+  FaWater,
+  FaTools,
+  FaCouch,
+  FaPaintBrush,
+  FaWrench,
+  FaBolt,
+} from "react-icons/fa";
+import { FaRug } from "react-icons/fa6";
 
 /* =========================
    IMAGE SLIDER COMPONENT
 ========================= */
-function ImageSlider({ images }) {
+
+function ImageSlider({ images, service }) {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
   const labels = ["Before", "After"];
   const colors = ["bg-red-600", "bg-green-600"];
@@ -21,24 +34,26 @@ function ImageSlider({ images }) {
 
   return (
     <div className="relative overflow-hidden rounded-t-3xl h-44">
-      {/* SLIDER */}
       <motion.div
         className="flex h-full w-full"
         animate={{ x: `-${index * 100}%` }}
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         {images.map((img, i) => (
-          <div key={i} className="w-full h-44 flex-shrink-0">
+          <div
+            key={i}
+            className="w-full h-44 flex-shrink-0 cursor-pointer"
+            onClick={() => navigate(`/service/${service.slug}`)}
+          >
             <img
               src={img}
+              alt={service.title}
               className="w-full h-full object-cover"
-              alt="service"
             />
           </div>
         ))}
       </motion.div>
 
-      {/* LABEL */}
       <motion.div
         key={index}
         initial={{ opacity: 0, y: -10 }}
@@ -48,7 +63,6 @@ function ImageSlider({ images }) {
         {labels[index]}
       </motion.div>
 
-      {/* DOTS */}
       <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
         {images.map((_, i) => (
           <div
@@ -66,14 +80,16 @@ function ImageSlider({ images }) {
 /* =========================
         SERVICES
 ========================= */
+
 function Services() {
   const whatsappLink =
     "https://wa.me/923137332085?text=Hi%20I%20want%20Capital%20Cleaning%20service";
 
   const cleaningServices = [
     {
-      title: "House Cleaning",
-      desc: "Complete home cleaning with trained professionals.",
+      slug: "home-deep-cleaning",
+      title: "Home Deep Cleaning",
+      desc: "Capital Cleaning & Maintenance provides professional Home Deep Cleaning services in Islamabad & Rawalpindi, leaving every home fresh, spotless, and hygienic.",
       icon: <FaHome />,
       images: [
         "/images/house-cleaning-b-final.jpg",
@@ -81,48 +97,67 @@ function Services() {
       ],
     },
     {
-      title: "Deep Cleaning",
-      desc: "Deep and detailed cleaning for every corner.",
-      icon: <FaBroom />,
-      images: [
-        "/images/deep-cleaning-b-final.webp",
-        "/images/deep-cleaning-a-final.webp",
-      ],
-    },
-    {
+      slug: "office-cleaning",
       title: "Office Cleaning",
-      desc: "Clean and productive workspace.",
+      desc: "Capital Cleaning & Maintenance provides professional Office Cleaning services in Islamabad & Rawalpindi, creating clean, organized, and productive workplaces..",
       icon: <FaBuilding />,
       images: [
         "/images/office-cleaning-b-final.jpg",
         "/images/office-cleaning-a-final.jpg",
       ],
     },
+    {
+      slug: "sofa-cleaning",
+      title: "Sofa Cleaning",
+      desc: "Capital Cleaning & Maintenance provides professional Sofa Cleaning services in Islamabad & Rawalpindi, removing stains, dust, and odors for a fresh, hygienic sofa.",
+      icon: <FaCouch />,
+      images: ["/images/sofa-before.webp", "/images/sofa-after.webp"],
+    },
+    {
+      slug: "carpet-cleaning",
+      title: "Carpet Cleaning",
+      desc: "Capital Cleaning & Maintenance provides professional Carpet Cleaning services in Islamabad & Rawalpindi, removing stains, dust, allergens, and odors for fresh, clean carpets.",
+      icon: <FaRug />,
+      images: ["/images/carpet-before.webp", "/images/carpet-after.webp"],
+    },
+    {
+      slug: "water-tank-cleaning",
+      title: "Water Tank Cleaning",
+      desc: "Capital Cleaning & Maintenance provides professional Water Tank Cleaning services in Islamabad & Rawalpindi, removing dirt, bacteria, and contaminants for clean, safe water.",
+      icon: <FaWater />,
+      images: [
+        "/images/water-tank-before.webp",
+        "/images/water-tank-after.webp",
+      ],
+    },
   ];
 
   const maintenanceServices = [
     {
+      slug: "painting",
       title: "Painting",
-      desc: "Wall painting & finishing",
-      icon: <FaTools />,
+      desc: "Capital Cleaning & Maintenance provides professional Painting services in Islamabad & Rawalpindi with premium finishes for homes and offices.",
+      icon: <FaPaintBrush />,
       images: ["/images/paint-b-final.jpg", "/images/paint-a-final.jpg"],
     },
     {
-      title: "Plumbing",
-      desc: "Leak fixing & pipe work",
-      icon: <FaTools />,
+      slug: "plumbring",
+      title: "Plumbring",
+      desc: "Capital Cleaning & Maintenance provides professional Plumbring services in Islamabad & Rawalpindi for leak repairs, pipe installation, and maintenance.",
+      icon: <FaWrench />,
       images: [
         "/images/plumbring-b-final.jpg",
         "/images/plumbring-a-final.jpg",
       ],
     },
     {
+      slug: "electrical",
       title: "Electrical",
-      desc: "Wiring & repair work",
-      icon: <FaTools />,
+      desc: "Capital Cleaning & Maintenance provides professional Electrical services in Islamabad & Rawalpindi for wiring, repairs, installations, and maintenance.",
+      icon: <FaBolt />,
       images: [
-        "/images/electrition-a-final.webp",
         "/images/electrition-b-final.jpg",
+        "/images/electrition-a-final.webp",
       ],
     },
   ];
@@ -140,7 +175,6 @@ function Services() {
       },
     }),
   };
-
   const renderCard = (service, index) => (
     <motion.div
       key={index}
@@ -152,7 +186,7 @@ function Services() {
       whileHover={{ scale: 1.05 }}
       className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition"
     >
-      <ImageSlider images={service.images} />
+      <ImageSlider images={service.images} service={service} />
 
       <div className="p-5 text-center">
         <div className="text-3xl text-[#2563EB] flex justify-center mb-2">
@@ -160,11 +194,13 @@ function Services() {
         </div>
 
         <h3 className="font-semibold text-lg">{service.title}</h3>
+
         <p className="text-gray-600 text-sm mt-1">{service.desc}</p>
 
         <a
           href={whatsappLink}
           target="_blank"
+          rel="noopener noreferrer"
           className="mt-4 block bg-[#2563EB] text-white px-4 py-2 rounded-xl text-sm shadow-md hover:bg-blue-700 transition"
         >
           Book Now
@@ -180,20 +216,26 @@ function Services() {
           Our <span className="text-[#2563EB]">Services</span>
         </h2>
 
+        {/* Cleaning Services */}
+
         <h3 className="mt-10 text-left text-2xl font-semibold">
           Cleaning Services 🧼
         </h3>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {cleaningServices.map((s, i) => renderCard(s, i))}
+          {cleaningServices.map((service, index) => renderCard(service, index))}
         </div>
+
+        {/* Maintenance Services */}
 
         <h3 className="mt-14 text-left text-2xl font-semibold">
           Maintenance Services 🛠️
         </h3>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {maintenanceServices.map((s, i) => renderCard(s, i))}
+          {maintenanceServices.map((service, index) =>
+            renderCard(service, index),
+          )}
         </div>
       </div>
     </section>

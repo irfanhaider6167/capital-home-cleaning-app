@@ -20,11 +20,13 @@ const AboutUs = () => {
         </h1>
 
         <p className="text-gray-500 mt-4 text-lg">
-          Professional cleaning & maintenance services you can trust
+          Professional Cleaning & Maintenance Services in Islamabad and
+          Rawalpindi
         </p>
       </motion.div>
 
       {/* MAIN CARD */}
+
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -32,6 +34,7 @@ const AboutUs = () => {
         className="max-w-6xl mx-auto bg-white shadow-lg rounded-3xl p-8 md:p-12 border border-gray-100"
       >
         {/* WHO WE ARE */}
+
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -41,15 +44,21 @@ const AboutUs = () => {
           <h2 className="text-2xl font-bold text-[#111827] mb-4">Who We Are</h2>
 
           <p className="text-gray-600 leading-relaxed">
-            Capital Cleaning & Maintenance is a professional service provider in
-            Pakistan, offering high-quality home, office, and deep cleaning
-            along with maintenance solutions like plumbing, electrical work, AC
-            services, and painting. Our goal is to deliver a clean, safe, and
-            comfortable environment using trained staff and modern tools.
+            Capital Cleaning & Maintenance is a professional cleaning and
+            maintenance company providing reliable services in Islamabad and
+            Rawalpindi. We specialize in sofa cleaning, carpet cleaning, home
+            deep cleaning, office cleaning, water tank cleaning, painting,
+            plumbing, and electrical services for homes, apartments, offices,
+            and commercial properties. Our trained team uses modern equipment
+            and professional methods to deliver hygienic, safe, and high-quality
+            solutions. We focus on customer satisfaction, affordable pricing,
+            and dependable services to create clean and comfortable
+            environments.
           </p>
         </motion.div>
 
         {/* MISSION / VISION */}
+
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -61,10 +70,12 @@ const AboutUs = () => {
             <h3 className="text-xl font-semibold text-[#1D4ED8] mb-3">
               Our Mission
             </h3>
+
             <p className="text-gray-600 text-sm">
-              To provide reliable, affordable, and high-quality cleaning and
-              maintenance services that improve everyday living and working
-              spaces.
+              To provide professional cleaning and maintenance services in
+              Islamabad and Rawalpindi with quality, reliability, and affordable
+              solutions that make homes and workplaces cleaner, safer, and
+              healthier.
             </p>
           </motion.div>
 
@@ -72,40 +83,45 @@ const AboutUs = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5 }}
             className="bg-[#F3F6FF] border border-gray-100 p-6 rounded-2xl shadow-sm"
           >
             <h3 className="text-xl font-semibold text-[#1D4ED8] mb-3">
               Our Vision
             </h3>
+
             <p className="text-gray-600 text-sm">
-              To become one of Pakistan’s most trusted service providers by
-              maintaining professional standards, innovation, and customer
-              satisfaction.
+              To become one of the most trusted cleaning and maintenance service
+              providers in Islamabad and Rawalpindi by maintaining professional
+              standards and delivering excellent customer experiences.
             </p>
           </motion.div>
         </div>
 
         {/* WHY CHOOSE US */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] text-white p-8 rounded-2xl shadow-md"
         >
-          <h3 className="text-2xl font-semibold mb-4">Why Choose Us?</h3>
+          <h3 className="text-2xl font-semibold mb-4">
+            Why Choose Capital Cleaning & Maintenance?
+          </h3>
 
           <div className="grid md:grid-cols-2 gap-3 text-sm">
-            <p>✔ Trained & Verified Staff</p>
+            <p>✔ Professional & Trained Cleaning Team</p>
+            <p>✔ Sofa, Carpet & Deep Cleaning Experts</p>
+            <p>✔ Islamabad & Rawalpindi Service Coverage</p>
+            <p>✔ Modern Cleaning Equipment</p>
             <p>✔ Affordable & Transparent Pricing</p>
-            <p>✔ Same Day Service Available</p>
-            <p>✔ Advanced Tools & Equipment</p>
-            <p>✔ 100% Customer Satisfaction</p>
             <p>✔ Easy WhatsApp Booking</p>
           </div>
         </motion.div>
 
         {/* CTA */}
+
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -117,7 +133,7 @@ const AboutUs = () => {
             rel="noopener noreferrer"
             className="inline-block bg-[#1D4ED8] text-white px-8 py-3 rounded-xl shadow-md hover:bg-blue-700 transition"
           >
-            Book a Service 🚀
+            Book a Cleaning Service 🚀
           </a>
         </motion.div>
       </motion.div>
