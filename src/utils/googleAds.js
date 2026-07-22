@@ -1,6 +1,13 @@
 // src/utils/googleAds.js
 
+/**
+ * Google Ads Conversion Tracking
+ * Account ID: AW-18165889785
+ */
+
+// ==============================
 // WhatsApp Conversion
+// ==============================
 export const trackWhatsAppConversion = () => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "conversion", {
@@ -9,22 +16,24 @@ export const trackWhatsAppConversion = () => {
   }
 };
 
+// ==============================
 // Phone Call Conversion
-// ⚠️ Abhi temporary same label use ho raha hai.
-// Jab Call Conversion create kar lenge to neeche wala label replace kar dena.
+// ==============================
 export const trackCallConversion = () => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "conversion", {
-      send_to: "AW-18165889785/WcNqCOH2xdQcEPn1ldZD",
+      send_to: "AW-18165889785/vD4SCJmbrdQcEPn1ldZD",
     });
   }
 };
 
-// Email Click (Optional)
+// ==============================
+// Email Conversion
+// ==============================
 export const trackEmailConversion = () => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "conversion", {
-      send_to: "AW-18165889785/WcNqCOH2xdQcEPn1ldZD",
+      send_to: "AW-18165889785/YcigCOmPyNQcEPn1ldZD",
     });
   }
 };
