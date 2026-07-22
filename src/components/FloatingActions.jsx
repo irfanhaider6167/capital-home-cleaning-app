@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import {
+  trackWhatsAppConversion,
+  trackCallConversion,
+} from "../utils/googleAds";
 
 function FloatingActions() {
   return (
@@ -12,6 +16,7 @@ function FloatingActions() {
       {/* CALL NOW */}
       <motion.a
         href="tel:+923137332085"
+        onClick={trackCallConversion}
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         animate={{ y: [0, -5, 0] }}
@@ -21,9 +26,7 @@ function FloatingActions() {
         }}
         className="relative bg-[#2563EB] text-white p-4 rounded-full shadow-xl"
       >
-        {/* pulse ring */}
         <span className="absolute inset-0 rounded-full bg-blue-500 opacity-40 animate-ping"></span>
-
         <FaPhoneAlt size={20} />
       </motion.a>
 
@@ -32,6 +35,7 @@ function FloatingActions() {
         href="https://wa.me/923137332085?text=Hi%20I%20need%20cleaning%20service"
         target="_blank"
         rel="noreferrer"
+        onClick={trackWhatsAppConversion}
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
         animate={{ y: [0, -5, 0] }}
@@ -41,9 +45,7 @@ function FloatingActions() {
         }}
         className="relative bg-green-500 text-white p-4 rounded-full shadow-xl"
       >
-        {/* pulse ring */}
         <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping"></span>
-
         <FaWhatsapp size={22} />
       </motion.a>
     </motion.div>

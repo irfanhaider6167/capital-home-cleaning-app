@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BookingForm from "../components/BookingForm";
+import {
+  trackWhatsAppConversion,
+  trackCallConversion,
+  trackEmailConversion,
+} from "../utils/googleAds";
 
 const ContactUs = () => {
   const whatsappLink =
@@ -30,6 +35,7 @@ const ContactUs = () => {
         {/* WhatsApp CTA */}
         <a
           href={whatsappLink}
+          onClick={trackWhatsAppConversion}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-5 bg-green-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-600 transition"
@@ -68,6 +74,7 @@ const ContactUs = () => {
               {/* PHONE */}
               <a
                 href="tel:+923137332085"
+                onClick={trackCallConversion}
                 className="flex items-center gap-3 bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition"
               >
                 <span className="text-blue-600 text-lg">📞</span>
@@ -80,6 +87,7 @@ const ContactUs = () => {
               {/* EMAIL */}
               <a
                 href="mailto:capitalcleaningservices4@gmail.com"
+                onClick={trackEmailConversion}
                 className="flex items-center gap-3 bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition"
               >
                 <span className="text-blue-600 text-lg">📧</span>

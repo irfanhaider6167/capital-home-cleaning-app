@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { trackWhatsAppConversion } from "../utils/googleAds";
 
 const AboutUs = () => {
   const whatsappLink =
@@ -129,6 +130,7 @@ const AboutUs = () => {
         >
           <a
             href={whatsappLink}
+            onClick={trackWhatsAppConversion}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#1D4ED8] text-white px-8 py-3 rounded-xl shadow-md hover:bg-blue-700 transition"

@@ -1,6 +1,7 @@
 import { FaCheckCircle, FaWhatsapp } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { services } from "../data/servicesData";
+import { trackWhatsAppConversion } from "../utils/googleAds";
 
 function ServiceDetail() {
   const { slug } = useParams();
@@ -95,6 +96,7 @@ function ServiceDetail() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackWhatsAppConversion}
             className="inline-flex items-center gap-3 mt-8 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition"
           >
             <FaWhatsapp className="text-2xl" />
