@@ -38,12 +38,13 @@ function Footer() {
 
           <a
             href="mailto:capitalcleaningservices4@gmail.com"
-            onClick={trackEmailConversion}
+            onClick={() => {
+              trackEmailConversion();
+            }}
             className="hover:text-blue-400 transition"
           >
             📧 Email Us
           </a>
-
           <a
             href="https://wa.me/923137332085"
             target="_blank"
