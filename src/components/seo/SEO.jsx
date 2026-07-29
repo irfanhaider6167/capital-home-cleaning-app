@@ -20,15 +20,23 @@ export default function SEO({
 
       name: "Capital Cleaning & Maintenance",
 
-      url: "https://capitalcleaning.site",
+      image: "https://capitalcleaning.site/images/logo.png",
 
-      image: image,
+      logo: "https://capitalcleaning.site/images/logo.png",
+
+      url: "https://capitalcleaning.site",
 
       telephone: "+923137332085",
 
+      priceRange: "PKR",
+
       address: {
         "@type": "PostalAddress",
+
         addressLocality: "Islamabad",
+
+        addressRegion: "Islamabad Capital Territory",
+
         addressCountry: "PK",
       },
 
@@ -37,11 +45,32 @@ export default function SEO({
           "@type": "City",
           name: "Islamabad",
         },
+
         {
           "@type": "City",
           name: "Rawalpindi",
         },
       ],
+
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+
+        opens: "08:00",
+
+        closes: "22:00",
+      },
+
+      sameAs: ["https://www.facebook.com/"],
     },
 
     areaServed: [
@@ -49,22 +78,30 @@ export default function SEO({
         "@type": "City",
         name: "Islamabad",
       },
+
       {
         "@type": "City",
         name: "Rawalpindi",
       },
     ],
+
+    serviceType: title,
   };
 
   return (
     <Helmet>
       {/* Basic SEO */}
+
       <title>{title}</title>
 
       <meta name="author" content="Capital Cleaning & Maintenance" />
+
       <meta name="theme-color" content="#2563eb" />
+
       <meta name="description" content={description} />
+
       <meta name="keywords" content={keywords} />
+
       <meta
         name="robots"
         content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
@@ -73,6 +110,7 @@ export default function SEO({
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
+
       <meta property="og:type" content="website" />
 
       <meta property="og:title" content={title} />
@@ -86,6 +124,7 @@ export default function SEO({
       <meta property="og:site_name" content="Capital Cleaning & Maintenance" />
 
       {/* Twitter */}
+
       <meta name="twitter:card" content="summary_large_image" />
 
       <meta name="twitter:title" content={title} />
@@ -95,6 +134,7 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
 
       {/* Schema */}
+
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>
   );

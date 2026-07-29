@@ -12,7 +12,7 @@ import {
   trackCallConversion,
   trackEmailConversion,
 } from "../utils/googleAds";
-import SEO from "../components/SEO";
+import SEO from "../components/seo/SEO";
 
 const ContactUs = () => {
   const whatsappLink =

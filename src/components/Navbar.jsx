@@ -76,13 +76,6 @@ ${
               Contact
             </NavLink>
           </li>
-
-          {/* <NavLink
-            to="/booking"
-            className="bg-[#1D4ED8] text-white px-4 py-1.5 rounded-lg text-sm hover:bg-blue-700 transition shadow-sm"
-          >
-            Book Now
-          </NavLink> */}
         </ul>
 
         {/* MOBILE BUTTON */}
@@ -133,10 +126,6 @@ ${
           >
             Contact
           </NavLink>
-
-          {/* <button className="w-full bg-[#1D4ED8] text-white py-2 rounded-lg shadow-sm">
-            Book Now
-          </button> */}
         </div>
       </div>
     </motion.nav>

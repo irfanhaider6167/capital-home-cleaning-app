@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
-import Services from "../components/Services";
+import ServicesPage from "./ServicesPage";
 import Testimonials from "../components/Testimonials";
-import SEO from "../components/SEO";
+import SEO from "../components/seo/SEO";
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
       />
 
       <Hero />
-      <Services />
+      <ServicesPage />
       <Testimonials />
     </>
   );

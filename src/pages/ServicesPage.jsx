@@ -214,7 +214,7 @@ function ServicesPage() {
                   rel="noopener noreferrer"
                   className="mt-5 block bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
                 >
-                  Book {service.title} 🚀
+                  Whatsapp Booking 🚀
                 </a>
               </div>
             </motion.div>
