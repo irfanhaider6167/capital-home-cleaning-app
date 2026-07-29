@@ -2,10 +2,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import FloatingActions from "./components/FloatingActions";
-import BookingForm from "./components/BookingForm";
 import ServiceDetail from "./pages/ServiceDetail";
 
 // 🔥 LAZY LOADED PAGES
@@ -13,26 +11,10 @@ const Home = lazy(() => import("./pages/Home"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const ContactUs = lazy(() => import("./pages/ContectUs"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
-const Admin = lazy(() => import("./pages/Admin"));
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const login = localStorage.getItem("adminLogin");
-    if (login === "true") {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  const ProtectedAdmin = () => {
-    return isLoggedIn ? <Admin /> : <Navigate to="/admin-login" />;
-  };
-
   return (
     <>
-      <Toaster />
       <Navbar />
 
       {/* 🔥 SUSPENSE WRAPPER */}
@@ -50,14 +32,6 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/booking" element={<BookingForm />} />
-
-            <Route
-              path="/admin-login"
-              element={<AdminLogin setIsLoggedIn={setIsLoggedIn} />}
-            />
-
-            <Route path="/admin" element={<ProtectedAdmin />} />
           </Routes>
         </div>
       </Suspense>
