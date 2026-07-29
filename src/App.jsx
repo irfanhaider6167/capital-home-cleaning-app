@@ -1,10 +1,11 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import FloatingActions from "./components/FloatingActions";
 import ServiceDetail from "./pages/ServiceDetail";
+import NotFound from "./pages/NotFound";
 
 // 🔥 LAZY LOADED PAGES
 const Home = lazy(() => import("./pages/Home"));
@@ -32,6 +33,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </Suspense>
