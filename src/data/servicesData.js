@@ -120,8 +120,8 @@ export const services = [
 
   {
     slug: "plumbring",
-    title: "Plumbing",
-    desc: "Capital Cleaning & Maintenance provides professional Plumbring services in Islamabad & Rawalpindi including leak repairs, pipe installation, bathroom fittings, kitchen plumbing, and maintenance solutions for homes and offices.",
+    title: "Plumbring",
+    desc: "Capital Cleaning & Maintenance provides professional Plumbring services in Islamabad & Rawalpindi including leak repairs, pipe installation, bathroom fittings, kitchen plumbring, and maintenance solutions for homes and offices.",
     hero: "/images/plumbring-a-final.jpg",
     before: "/images/plumbring-b-final.jpg",
     after: "/images/plumbring-a-final.jpg",
