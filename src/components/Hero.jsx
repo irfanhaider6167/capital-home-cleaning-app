@@ -6,55 +6,60 @@ function Hero() {
   const whatsappLink =
     "https://wa.me/923137332085?text=Hi%20I%20need%20Capital%20Cleaning%20and%20Maintenance%20services";
 
-  // Google Ads Conversion Tracking
-
   const slides = [
     {
-      title: "Professional Sofa Cleaning",
+      title: "Sofa Cleaning Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Deep stain removal, odor elimination and fabric-safe sofa cleaning.",
+      desc: "Professional sofa cleaning to remove stains, dust and odors.",
       image: "/images/sofa-after.webp",
     },
+
     {
-      title: "Professional Carpet Cleaning",
+      title: "Carpet Cleaning Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Deep carpet cleaning with stain and dust removal.",
+      desc: "Deep carpet cleaning for fresh and hygienic carpets.",
       image: "/images/carpet-after.webp",
     },
+
     {
-      title: "Home Deep Cleaning",
+      title: "Home Deep Cleaning Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Complete home deep cleaning with eco-friendly solutions.",
+      desc: "Complete home cleaning with modern equipment and safe solutions.",
       image: "/images/deep-cleaning-a-final.webp",
     },
+
     {
-      title: "Office Cleaning",
+      title: "Office Cleaning Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional office cleaning for clean workplaces.",
+      desc: "Reliable cleaning solutions for offices and workplaces.",
       image: "/images/office-cleaning-a-final.jpg",
     },
+
     {
-      title: "Water Tank Cleaning",
+      title: "Water Tank Cleaning Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional underground and overhead water tank cleaning.",
+      desc: "Safe underground and overhead water tank cleaning.",
       image: "/images/water-tank-after.webp",
     },
+
     {
       title: "Painting Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Premium interior and exterior painting services.",
+      desc: "Quality interior and exterior painting solutions.",
       image: "/images/paint-a-final.jpg",
     },
+
     {
       title: "Plumbing Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional plumbing repairs and installations.",
+      desc: "Professional plumbing repair and maintenance services.",
       image: "/images/plumbring-a-final.jpg",
     },
+
     {
       title: "Electrical Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Safe electrical wiring, repair and maintenance.",
+      desc: "Safe electrical installation, repair and maintenance.",
       image: "/images/electrition-a-final.webp",
     },
   ];
@@ -80,24 +85,24 @@ function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE] min-h-screen flex items-center">
       <div className="absolute top-[-150px] left-[-120px] w-96 h-96 bg-blue-300/30 rounded-full blur-3xl"></div>
+
       <div className="absolute bottom-[-150px] right-[-120px] w-96 h-96 bg-indigo-300/30 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center relative z-10">
         {/* LEFT */}
+
         <div className="text-center md:text-left">
           <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900">
-            Best Cleaning Services in{" "}
+            Capital Cleaning & Maintenance{" "}
             <span className="text-blue-600">Islamabad & Rawalpindi</span>
           </h1>
 
           <p className="mt-6 text-lg text-gray-600 leading-8 max-w-xl">
-            Capital Cleaning & Maintenance offers professional cleaning and
-            maintenance services in Islamabad and Rawalpindi, including sofa
+            Capital Cleaning & Maintenance provides professional cleaning and
+            maintenance services in Islamabad & Rawalpindi. We offer sofa
             cleaning, carpet cleaning, home deep cleaning, office cleaning,
-            water tank cleaning, painting, plumbing, and electrical services.
-            Our trained team provides reliable, affordable, and high-quality
-            solutions to keep your home and workplace clean, safe, and
-            well-maintained.
+            water tank cleaning, painting, plumbing, and electrical services
+            with reliable quality and expert solutions.
           </p>
 
           <div className="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
@@ -124,6 +129,7 @@ function Hero() {
         </div>
 
         {/* RIGHT */}
+
         <div className="relative overflow-hidden rounded-3xl shadow-2xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -133,45 +139,27 @@ function Hero() {
               exit={{ x: -300, opacity: 0 }}
               transition={{
                 duration: 0.5,
-                ease: "easeInOut",
               }}
               className="relative"
             >
               <img
                 src={slides[current].image}
-                alt={slides[current].title}
+                alt={`${slides[current].title} Islamabad Rawalpindi`}
                 className="w-full h-[400px] object-cover rounded-3xl"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
               <div className="absolute bottom-10 left-8 right-8 text-white">
-                <motion.h2
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-3xl md:text-4xl font-bold"
-                >
+                <h2 className="text-3xl md:text-4xl font-bold">
                   {slides[current].title}
-                </motion.h2>
+                </h2>
 
-                <motion.p
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-blue-200 font-semibold text-lg mt-2"
-                >
+                <p className="text-blue-200 font-semibold text-lg mt-2">
                   {slides[current].highlight}
-                </motion.p>
+                </p>
 
-                <motion.p
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="mt-3 text-gray-200"
-                >
-                  {slides[current].desc}
-                </motion.p>
+                <p className="mt-3 text-gray-200">{slides[current].desc}</p>
               </div>
             </motion.div>
           </AnimatePresence>
