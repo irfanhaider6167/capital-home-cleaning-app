@@ -1,1 +1,0 @@
-var e=()=>{typeof window<`u`&&window.gtag&&window.gtag(`event`,`conversion`,{send_to:`AW-18165889785/WcNqCOH2xdQcEPn1ldZD`})},t=()=>{typeof window<`u`&&window.gtag&&window.gtag(`event`,`conversion`,{send_to:`AW-18165889785/vD4SCJmbrdQcEPn1ldZD`})},n=()=>{window.gtag&&window.gtag(`event`,`conversion`,{send_to:`AW-18165889785/YcigCOmPyNQcEPn1ldZD`})};export{n,e as r,t};
