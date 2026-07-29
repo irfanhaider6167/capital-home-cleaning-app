@@ -56,9 +56,6 @@ function ServiceDetail() {
       />
 
     </Helmet>
-
-
-    <section className="bg-[#F9FBFF] min-h-screen py-16">
     <section className="bg-[#F9FBFF] min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* HERO IMAGE */}
