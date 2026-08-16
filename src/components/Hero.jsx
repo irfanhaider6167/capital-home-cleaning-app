@@ -82,15 +82,11 @@ function Hero() {
 
       <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-indigo-300/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 md:grid-cols-2 md:gap-14 md:py-20 lg:py-24">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 md:grid-cols-2 md:gap-14 md:py-20 lg:py-8">
         {/* LEFT CONTENT */}
         <div className="text-center md:text-left">
-          <div className="mb-5 inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm">
-            Capital Cleaning & Maintenance Services
-          </div>
-
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-            Cleaning Services in{" "}
+          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-4xl">
+            Capital Cleaning Services in{" "}
             <span className="text-blue-600">Islamabad & Rawalpindi</span>
           </h1>
 
