@@ -8,58 +8,51 @@ function Hero() {
 
   const slides = [
     {
-      title: "Sofa Cleaning Services",
+      title: "Sofa Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional sofa cleaning to remove stains, dust and odors.",
+      desc: "Professional sofa cleaning to remove stains, dust and unpleasant odors.",
       image: "/images/sofa-after.webp",
     },
-
     {
-      title: "Carpet Cleaning Services",
+      title: "Carpet Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Deep carpet cleaning for fresh and hygienic carpets.",
+      desc: "Deep carpet cleaning to refresh your carpets and improve indoor hygiene.",
       image: "/images/carpet-after.webp",
     },
-
     {
-      title: "Home Deep Cleaning Services",
+      title: "Home Deep Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Complete home cleaning with modern equipment and safe solutions.",
+      desc: "Thorough home deep cleaning using professional equipment and quality solutions.",
       image: "/images/deep-cleaning-a-final.webp",
     },
-
     {
-      title: "Office Cleaning Services",
+      title: "Office Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Reliable cleaning solutions for offices and workplaces.",
+      desc: "Reliable cleaning solutions for offices, workplaces and commercial spaces.",
       image: "/images/office-cleaning-a-final.jpg",
     },
-
     {
-      title: "Water Tank Cleaning Services",
+      title: "Water Tank Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Safe underground and overhead water tank cleaning.",
+      desc: "Professional cleaning for underground and overhead water tanks.",
       image: "/images/water-tank-after.webp",
     },
-
     {
       title: "Painting Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Quality interior and exterior painting solutions.",
+      desc: "Professional interior and exterior painting for homes and commercial spaces.",
       image: "/images/paint-a-final.jpg",
     },
-
     {
       title: "Plumbing Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional plumbing repair and maintenance services.",
+      desc: "Professional plumbing repair, installation and maintenance services.",
       image: "/images/plumbring-a-final.jpg",
     },
-
     {
       title: "Electrical Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Safe electrical installation, repair and maintenance.",
+      desc: "Reliable electrical installation, repair and maintenance solutions.",
       image: "/images/electrition-a-final.webp",
     },
   ];
@@ -69,7 +62,7 @@ function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 4500);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -83,37 +76,59 @@ function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE] min-h-screen flex items-center">
-      <div className="absolute top-[-150px] left-[-120px] w-96 h-96 bg-blue-300/30 rounded-full blur-3xl"></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Decorative Background */}
+      <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
 
-      <div className="absolute bottom-[-150px] right-[-120px] w-96 h-96 bg-indigo-300/30 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-indigo-300/20 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center relative z-10">
-        {/* LEFT */}
-
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 md:grid-cols-2 md:gap-14 md:py-20 lg:py-24">
+        {/* LEFT CONTENT */}
         <div className="text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900">
-            Capital Cleaning & Maintenance{" "}
+          <div className="mb-5 inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm">
+            Capital Cleaning & Maintenance Services
+          </div>
+
+          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+            Cleaning Services in{" "}
             <span className="text-blue-600">Islamabad & Rawalpindi</span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-600 leading-8 max-w-xl">
-            Capital Cleaning & Maintenance provides professional cleaning and
-            maintenance services in Islamabad & Rawalpindi. We offer sofa
-            cleaning, carpet cleaning, home deep cleaning, office cleaning,
-            water tank cleaning, painting, plumbing, and electrical services
-            with reliable quality and expert solutions.
+          <p className="mt-6 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 md:mx-0">
+            Capital Cleaning provides reliable professional cleaning services
+            for homes, apartments, offices and commercial spaces. From home deep
+            cleaning and sofa cleaning to carpet, mattress and water tank
+            cleaning, our team delivers thorough and professional results.
           </p>
 
-          <div className="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
+          {/* Trust Points */}
+          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-medium text-gray-700 md:justify-start">
+            <span className="flex items-center gap-2">
+              <span className="text-blue-600">✓</span>
+              Professional Team
+            </span>
+
+            <span className="flex items-center gap-2">
+              <span className="text-blue-600">✓</span>
+              Quality Service
+            </span>
+
+            <span className="flex items-center gap-2">
+              <span className="text-blue-600">✓</span>
+              Islamabad & Rawalpindi
+            </span>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackWhatsAppConversion}
-              className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-blue-600/20 transition duration-300 hover:-translate-y-0.5 hover:bg-blue-700"
             >
-              Get Free Quote
+              Get a Free Quote
             </a>
 
             <a
@@ -121,73 +136,98 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={trackWhatsAppConversion}
-              className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-blue-600 bg-white px-7 py-3.5 font-semibold text-blue-600 transition duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:text-white"
             >
-              Book on WhatsApp
+              Book Now
             </a>
           </div>
+
+          <p className="mt-4 text-sm text-gray-500">
+            Quick response • Easy booking • Professional service
+          </p>
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT SLIDER */}
+        <div className="relative">
+          <div className="relative overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-gray-200">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -80 }}
+                transition={{
+                  duration: 0.45,
+                  ease: "easeOut",
+                }}
+                className="relative"
+              >
+                <img
+                  src={slides[current].image}
+                  alt={`${slides[current].title} in Islamabad and Rawalpindi`}
+                  className="h-[380px] w-full object-cover sm:h-[430px] lg:h-[500px]"
+                />
 
-        <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ x: 300, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -300, opacity: 0 }}
-              transition={{
-                duration: 0.5,
-              }}
-              className="relative"
+                {/* Image Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+                {/* Slide Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <span className="inline-block rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                    Capital Cleaning
+                  </span>
+
+                  <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
+                    {slides[current].title}
+                  </h2>
+
+                  <p className="mt-1 font-semibold text-blue-200">
+                    {slides[current].highlight}
+                  </p>
+
+                  <p className="mt-2 max-w-lg text-sm leading-6 text-gray-200 sm:text-base">
+                    {slides[current].desc}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Previous Button */}
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous service"
+              className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:bg-blue-600 hover:text-white"
             >
-              <img
-                src={slides[current].image}
-                alt={`${slides[current].title} Islamabad Rawalpindi`}
-                className="w-full h-[400px] object-cover rounded-3xl"
-              />
+              ❮
+            </button>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            {/* Next Button */}
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next service"
+              className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:bg-blue-600 hover:text-white"
+            >
+              ❯
+            </button>
 
-              <div className="absolute bottom-10 left-8 right-8 text-white">
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  {slides[current].title}
-                </h2>
-
-                <p className="text-blue-200 font-semibold text-lg mt-2">
-                  {slides[current].highlight}
-                </p>
-
-                <p className="mt-3 text-gray-200">{slides[current].desc}</p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 w-11 h-11 rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition"
-          >
-            ❮
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 w-11 h-11 rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition"
-          >
-            ❯
-          </button>
-
-          <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`rounded-full transition-all ${
-                  current === index ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/60"
-                }`}
-              />
-            ))}
+            {/* Slider Indicators */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  onClick={() => setCurrent(index)}
+                  aria-label={`Show ${slide.title}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    current === index
+                      ? "w-8 bg-white"
+                      : "w-2 bg-white/60 hover:bg-white"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
