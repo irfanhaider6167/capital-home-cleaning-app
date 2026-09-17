@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { trackWhatsAppConversion } from "../utils/googleAds";
 
 import {
@@ -12,6 +12,8 @@ import {
   FaWrench,
   FaBolt,
   FaBed,
+  FaBug,
+  FaShieldAlt,
 } from "react-icons/fa";
 
 import { FaRug } from "react-icons/fa6";
@@ -111,6 +113,7 @@ function ServicesPage() {
       icon: <FaBed />,
       images: ["/images/mattress-before.webp", "/images/mattress-after.webp"],
     },
+
     {
       slug: "carpet-cleaning",
       title: "Carpet Cleaning Islamabad & Rawalpindi",
@@ -127,6 +130,17 @@ function ServicesPage() {
       images: [
         "/images/water-tank-before.webp",
         "/images/water-tank-after.webp",
+      ],
+    },
+
+    {
+      slug: "pest-control",
+      title: "Pest Control Islamabad & Rawalpindi",
+      desc: "Capital Cleaning & Maintenance provides professional Pest Control services in Islamabad & Rawalpindi for homes, apartments, offices, and commercial properties. We help control common pests and maintain a cleaner and more hygienic environment.",
+      icon: <FaBug />,
+      images: [
+        "/images/pest-control-before.webp",
+        "/images/pest-control-after.webp",
       ],
     },
 
@@ -166,7 +180,7 @@ function ServicesPage() {
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-center text-4xl font-bold mb-12 text-[#111827]">
           Our
-          <span className="text-blue-600">Services</span>
+          <span className="text-blue-600"> Services</span>
         </h2>
 
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
@@ -200,7 +214,12 @@ function ServicesPage() {
                 </div>
 
                 <h3 className="font-bold text-lg text-gray-900">
-                  {service.title}
+                  <Link
+                    to={`/service/${service.slug}`}
+                    className="hover:text-blue-600 transition"
+                  >
+                    {service.title}
+                  </Link>
                 </h3>
 
                 <p className="text-gray-600 text-sm mt-3 leading-relaxed">

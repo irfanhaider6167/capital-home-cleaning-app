@@ -32,10 +32,22 @@ function Hero() {
       image: "/images/office-cleaning-a-final.jpg",
     },
     {
+      title: "Mattress Cleaning",
+      highlight: "Islamabad & Rawalpindi",
+      desc: "Professional mattress cleaning to remove stains, dust and unpleasant odors.",
+      image: "/images/mattress-after.webp",
+    },
+    {
       title: "Water Tank Cleaning",
       highlight: "Islamabad & Rawalpindi",
       desc: "Professional cleaning for underground and overhead water tanks.",
       image: "/images/water-tank-after.webp",
+    },
+    {
+      title: "Pest Control Services",
+      highlight: "Islamabad & Rawalpindi",
+      desc: "Professional pest control solutions to help protect your home or business from common pest infestations.",
+      image: "/images/pest-control-after.webp",
     },
     {
       title: "Painting Services",
@@ -86,15 +98,17 @@ function Hero() {
         {/* LEFT CONTENT */}
         <div className="text-center md:text-left">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-4xl">
-            Capital Cleaning Services in{" "}
+            Cleaning, Pest Control & Maintenance Services in{" "}
             <span className="text-blue-600">Islamabad & Rawalpindi</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 md:mx-0">
-            Capital Cleaning provides reliable professional cleaning services
-            for homes, apartments, offices and commercial spaces. From home deep
-            cleaning and sofa cleaning to carpet, mattress and water tank
-            cleaning, our team delivers thorough and professional results.
+            Capital Cleaning & Maintenance provides reliable professional
+            cleaning, pest control and maintenance services for homes,
+            apartments, offices and commercial spaces. From home deep cleaning,
+            sofa and carpet cleaning to pest control, painting, plumbing and
+            electrical services, our team provides practical solutions for your
+            property maintenance needs.
           </p>
 
           {/* Trust Points */}
@@ -170,7 +184,7 @@ function Hero() {
                 {/* Slide Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                   <span className="inline-block rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                    Capital Cleaning
+                    Capital Cleaning & Maintenance
                   </span>
 
                   <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">

@@ -6,7 +6,9 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaClock,
+  FaArrowRight,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import {
   trackWhatsAppConversion,
   trackCallConversion,
@@ -18,12 +20,67 @@ const ContactUs = () => {
   const whatsappLink =
     "https://wa.me/923137332085?text=Hi%20I%20want%20Cleaning%20and%20Maintenance%20service%20from%20Capital%20Cleaning%20and%20Maintenance";
 
+  const services = [
+    {
+      title: "Home Deep Cleaning",
+      slug: "home-deep-cleaning",
+    },
+    {
+      title: "Office Cleaning",
+      slug: "office-cleaning",
+    },
+    {
+      title: "Sofa Cleaning",
+      slug: "sofa-cleaning",
+    },
+    {
+      title: "Carpet Cleaning",
+      slug: "carpet-cleaning",
+    },
+    {
+      title: "Mattress Cleaning",
+      slug: "mattress-cleaning",
+    },
+    {
+      title: "Water Tank Cleaning",
+      slug: "water-tank-cleaning",
+    },
+    {
+      title: "Pest Control",
+      slug: "pest-control",
+    },
+    {
+      title: "Bed Bug Control",
+      slug: "bed-bug-control",
+    },
+    {
+      title: "Termite Control",
+      slug: "termite-control",
+    },
+    {
+      title: "Cockroach Control",
+      slug: "cockroach-control",
+    },
+    {
+      title: "Painting",
+      slug: "painting",
+    },
+    {
+      title: "Plumbing",
+      slug: "plumbing",
+    },
+    {
+      title: "Electrical",
+      slug: "electrical",
+    },
+  ];
+
   return (
     <>
       <SEO
         title="Contact Us | Capital Cleaning & Maintenance Islamabad & Rawalpindi"
-        description="Contact Capital Cleaning & Maintenance for Sofa Cleaning, Carpet Cleaning, Home Deep Cleaning, Office Cleaning, Water Tank Cleaning, Painting, Plumbing and Electrical Services in Islamabad & Rawalpindi."
-        keywords="Contact Cleaning Services Islamabad, Sofa Cleaning Islamabad, Carpet Cleaning Rawalpindi, Deep Cleaning, Water Tank Cleaning"
+        description="Contact Capital Cleaning & Maintenance for Home Deep Cleaning, Office Cleaning, Sofa Cleaning, Carpet Cleaning, Mattress Cleaning, Water Tank Cleaning, Pest Control, Bed Bug Control, Termite Control, Cockroach Control, Painting, Plumbing and Electrical Services in Islamabad & Rawalpindi."
+        keywords="Contact Cleaning Services Islamabad, Cleaning Services Rawalpindi, Pest Control Islamabad, Pest Control Rawalpindi, Bed Bug Control Islamabad, Termite Control Islamabad, Cockroach Control Islamabad, Home Deep Cleaning Islamabad, Sofa Cleaning Islamabad, Carpet Cleaning Rawalpindi, Water Tank Cleaning Islamabad"
         url="https://capitalcleaning.site/contact"
       />
 
@@ -36,7 +93,7 @@ const ContactUs = () => {
           className="max-w-4xl mx-auto text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
-            Professional Cleaning & Maintenance Services
+            Capital Cleaning & Maintenance Services
           </h1>
 
           <p className="text-blue-600 font-semibold mt-2 text-lg">
@@ -44,11 +101,11 @@ const ContactUs = () => {
           </p>
 
           <p className="text-gray-600 mt-5 text-lg leading-8">
-            Capital Cleaning & Maintenance provides professional Sofa Cleaning,
-            Carpet Cleaning, Mattress Cleaning, Home Deep Cleaning, Office
-            Cleaning, Water Tank Cleaning, Painting, Plumbing and Electrical
-            Services with affordable pricing and guaranteed customer
-            satisfaction.
+            Capital Cleaning & Maintenance provides professional Home Deep
+            Cleaning, Office Cleaning, Sofa Cleaning, Carpet Cleaning, Mattress
+            Cleaning, Water Tank Cleaning, Pest Control, Bed Bug Control,
+            Termite Control, Cockroach Control, Painting, Plumbing and
+            Electrical Services in Islamabad & Rawalpindi.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -88,6 +145,7 @@ const ContactUs = () => {
             </h2>
 
             <div className="space-y-5">
+              {/* SERVICE AREAS */}
               <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
                 <FaMapMarkerAlt className="text-blue-600 mt-1 text-xl" />
 
@@ -95,6 +153,7 @@ const ContactUs = () => {
                   <h3 className="font-semibold text-lg mb-3">Service Areas</h3>
 
                   <div className="grid sm:grid-cols-2 gap-4 text-gray-600">
+                    {/* ISLAMABAD */}
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
                         Islamabad
@@ -119,6 +178,7 @@ const ContactUs = () => {
                       </ul>
                     </div>
 
+                    {/* RAWALPINDI */}
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
                         Rawalpindi
@@ -145,6 +205,7 @@ const ContactUs = () => {
                 </div>
               </div>
 
+              {/* PHONE */}
               <a
                 href="tel:+923137332085"
                 onClick={trackCallConversion}
@@ -159,6 +220,7 @@ const ContactUs = () => {
                 </div>
               </a>
 
+              {/* EMAIL */}
               <a
                 href="mailto:capitalcleaningservices4@gmail.com"
                 onClick={trackEmailConversion}
@@ -175,6 +237,7 @@ const ContactUs = () => {
                 </div>
               </a>
 
+              {/* WORKING HOURS */}
               <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
                 <FaClock className="text-blue-600 mt-1 text-xl" />
 
@@ -199,11 +262,12 @@ const ContactUs = () => {
                 <li>✔ Same Day Service Available</li>
                 <li>✔ Affordable Prices</li>
                 <li>✔ Eco-Friendly Cleaning Products</li>
-                <li>✔ 100% Customer Satisfaction</li>
+                <li>✔ Professional Pest Control Services</li>
                 <li>✔ Residential & Commercial Services</li>
               </ul>
             </div>
           </div>
+
           {/* RIGHT SIDE */}
           <div className="flex flex-col justify-between">
             <div>
@@ -211,24 +275,18 @@ const ContactUs = () => {
                 Our Services
               </h2>
 
+              {/* INTERNAL SERVICE LINKS */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  "Home Deep Cleaning",
-                  "Office Cleaning",
-                  "Sofa Cleaning",
-                  "Carpet Cleaning",
-                  "Mattress Cleaning",
-                  "Water Tank Cleaning",
-                  "Painting",
-                  "Plumbing",
-                  "Electrical",
-                ].map((service) => (
-                  <div
-                    key={service}
-                    className="bg-blue-50 rounded-xl p-4 font-medium text-gray-700 hover:bg-blue-100 transition"
+                {services.map((service) => (
+                  <Link
+                    key={service.slug}
+                    to={`/service/${service.slug}`}
+                    className="group bg-blue-50 rounded-xl p-4 font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition flex items-center justify-between"
                   >
-                    ✓ {service}
-                  </div>
+                    <span>✓ {service.title}</span>
+
+                    <FaArrowRight className="text-blue-500 text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
+                  </Link>
                 ))}
               </div>
 
@@ -239,7 +297,7 @@ const ContactUs = () => {
                 </h3>
 
                 <iframe
-                  title="Capital Cleaning & Maintenance"
+                  title="Capital Cleaning & Maintenance Service Area"
                   src="https://maps.google.com/maps?q=G-11%20Islamabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-72 rounded-2xl border"
                   loading="lazy"
@@ -250,13 +308,11 @@ const ContactUs = () => {
 
             {/* CTA */}
             <div className="mt-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center text-white">
-              <h2 className="text-3xl font-bold">
-                Need Immediate Cleaning Service?
-              </h2>
+              <h2 className="text-3xl font-bold">Need Professional Service?</h2>
 
               <p className="mt-3 text-blue-100">
-                Contact our expert team today for professional cleaning and
-                maintenance services anywhere in Islamabad & Rawalpindi.
+                Contact our expert team today for professional cleaning, pest
+                control and maintenance services in Islamabad & Rawalpindi.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mt-8">

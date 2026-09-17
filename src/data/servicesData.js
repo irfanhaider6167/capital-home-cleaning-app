@@ -100,6 +100,73 @@ export const services = [
       "Underground & Overhead Tank Cleaning",
     ],
   },
+  {
+    slug: "pest-control",
+    title: "Pest Control",
+    desc: "Capital Cleaning & Maintenance provides professional Pest Control Services in Islamabad & Rawalpindi for homes, apartments, offices, and commercial properties. We provide pest treatment for common household pests and help maintain a cleaner, safer, and more hygienic environment.",
+    hero: "/images/pest-control-after.webp",
+    before: "/images/pest-control-before.webp",
+    after: "/images/pest-control-after.webp",
+    features: [
+      "Cockroach Control",
+      "Bed Bug Control",
+      "Termite Control",
+      "Ant Control",
+      "Mosquito Control",
+      "Residential & Commercial Pest Control",
+    ],
+  },
+
+  {
+    slug: "bed-bug-control",
+    title: "Bed Bug Control",
+    desc: "Capital Cleaning & Maintenance provides professional Bed Bug Control Services in Islamabad & Rawalpindi for homes, bedrooms, apartments, and commercial properties. Our bed bug treatment helps control infestations and provides a cleaner and more comfortable sleeping environment.",
+    hero: "/images/bed-bug-control-after.webp",
+    before: "/images/bed-bug-control-before.webp",
+    after: "/images/bed-bug-control-after.webp",
+    features: [
+      "Bed Bug Inspection",
+      "Bed Bug Treatment",
+      "Mattress & Bedroom Treatment",
+      "Bed Frame Treatment",
+      "Infestation Control",
+      "Residential & Commercial Bed Bug Control",
+    ],
+  },
+
+  {
+    slug: "termite-control",
+    title: "Termite Control",
+    desc: "Capital Cleaning & Maintenance provides professional Termite Control Services in Islamabad & Rawalpindi for homes, apartments, offices, and commercial properties. Our termite treatment helps identify and control termite infestations and protect affected areas from further termite damage.",
+    hero: "/images/termite-control-after.webp",
+    before: "/images/termite-control-before.webp",
+    after: "/images/termite-control-after.webp",
+    features: [
+      "Termite Inspection",
+      "Termite Treatment",
+      "Wood & Furniture Protection",
+      "Wall & Floor Treatment",
+      "Termite Infestation Control",
+      "Residential & Commercial Termite Control",
+    ],
+  },
+
+  {
+    slug: "cockroach-control",
+    title: "Cockroach Control",
+    desc: "Capital Cleaning & Maintenance provides professional Cockroach Control Services in Islamabad & Rawalpindi for homes, apartments, kitchens, offices, and commercial properties. Our treatment helps control cockroach infestations and maintain a cleaner and more hygienic environment.",
+    hero: "/images/cockroach-control-after.webp",
+    before: "/images/cockroach-control-before.webp",
+    after: "/images/cockroach-control-after.webp",
+    features: [
+      "Cockroach Inspection",
+      "Cockroach Treatment",
+      "Kitchen & Bathroom Treatment",
+      "Crack & Crevice Treatment",
+      "Cockroach Infestation Control",
+      "Residential & Commercial Cockroach Control",
+    ],
+  },
 
   {
     slug: "painting",
