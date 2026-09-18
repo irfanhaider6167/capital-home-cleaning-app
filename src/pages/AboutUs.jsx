@@ -191,6 +191,7 @@ const AboutUs = () => {
                   >
                     <span className="flex items-center gap-2">
                       <span className="text-green-600 font-bold">✔</span>
+
                       <span className="group-hover:text-[#1D4ED8] group-hover:font-semibold transition">
                         {service.name}
                       </span>

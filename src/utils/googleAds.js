@@ -31,7 +31,7 @@ export const trackCallConversion = () => {
 // Email Conversion
 // ==============================
 export const trackEmailConversion = () => {
-  if (window.gtag) {
+  if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "conversion", {
       send_to: "AW-18165889785/YcigCOmPyNQcEPn1ldZD",
     });

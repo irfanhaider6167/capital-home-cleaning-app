@@ -1,3 +1,5 @@
+// src/pages/ContactUs.jsx
+
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -9,17 +11,25 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 import {
   trackWhatsAppConversion,
   trackCallConversion,
   trackEmailConversion,
 } from "../utils/googleAds";
+
 import SEO from "../components/seo/SEO";
 
 const ContactUs = () => {
+  // ==============================
+  // WhatsApp Link
+  // ==============================
   const whatsappLink =
     "https://wa.me/923137332085?text=Hi%20I%20want%20Cleaning%20and%20Maintenance%20service%20from%20Capital%20Cleaning%20and%20Maintenance";
 
+  // ==============================
+  // Services
+  // ==============================
   const services = [
     {
       title: "Home Deep Cleaning",
@@ -77,6 +87,9 @@ const ContactUs = () => {
 
   return (
     <>
+      {/* ==============================
+          SEO
+      ============================== */}
       <SEO
         title="Contact Us | Capital Cleaning & Maintenance Islamabad & Rawalpindi"
         description="Contact Capital Cleaning & Maintenance for Home Deep Cleaning, Office Cleaning, Sofa Cleaning, Carpet Cleaning, Mattress Cleaning, Water Tank Cleaning, Pest Control, Bed Bug Control, Termite Control, Cockroach Control, Painting, Plumbing and Electrical Services in Islamabad & Rawalpindi."
@@ -85,7 +98,9 @@ const ContactUs = () => {
       />
 
       <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 px-4 py-12">
-        {/* HERO */}
+        {/* ==============================
+            HERO
+        ============================== */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -108,7 +123,9 @@ const ContactUs = () => {
             Electrical Services in Islamabad & Rawalpindi.
           </p>
 
+          {/* Hero Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {/* WhatsApp */}
             <a
               href={whatsappLink}
               target="_blank"
@@ -120,6 +137,7 @@ const ContactUs = () => {
               WhatsApp Now
             </a>
 
+            {/* Call */}
             <a
               href="tel:+923137332085"
               onClick={trackCallConversion}
@@ -131,29 +149,36 @@ const ContactUs = () => {
           </div>
         </motion.div>
 
-        {/* CONTACT CARD */}
+        {/* ==============================
+            CONTACT CARD
+        ============================== */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
           className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 bg-white rounded-3xl shadow-xl p-8"
         >
-          {/* LEFT */}
+          {/* ==============================
+              LEFT SIDE
+          ============================== */}
           <div>
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
               Get in Touch
             </h2>
 
             <div className="space-y-5">
-              {/* SERVICE AREAS */}
+              {/* ==============================
+                  SERVICE AREAS
+              ============================== */}
               <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
-                <FaMapMarkerAlt className="text-blue-600 mt-1 text-xl" />
+                <FaMapMarkerAlt className="text-blue-600 mt-1 text-xl flex-shrink-0" />
 
-                <div>
+                <div className="w-full">
                   <h3 className="font-semibold text-lg mb-3">Service Areas</h3>
 
                   <div className="grid sm:grid-cols-2 gap-4 text-gray-600">
-                    {/* ISLAMABAD */}
+                    {/* Islamabad */}
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
                         Islamabad
@@ -178,7 +203,7 @@ const ContactUs = () => {
                       </ul>
                     </div>
 
-                    {/* RAWALPINDI */}
+                    {/* Rawalpindi */}
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
                         Rawalpindi
@@ -205,13 +230,15 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              {/* PHONE */}
+              {/* ==============================
+                  PHONE
+              ============================== */}
               <a
                 href="tel:+923137332085"
                 onClick={trackCallConversion}
                 className="flex items-start gap-4 bg-gray-50 rounded-xl p-4 hover:bg-blue-50 transition"
               >
-                <FaPhoneAlt className="text-blue-600 mt-1 text-xl" />
+                <FaPhoneAlt className="text-blue-600 mt-1 text-xl flex-shrink-0" />
 
                 <div>
                   <h3 className="font-semibold">Phone Number</h3>
@@ -220,13 +247,15 @@ const ContactUs = () => {
                 </div>
               </a>
 
-              {/* EMAIL */}
+              {/* ==============================
+                  EMAIL
+              ============================== */}
               <a
                 href="mailto:capitalcleaningservices4@gmail.com"
                 onClick={trackEmailConversion}
                 className="flex items-start gap-4 bg-gray-50 rounded-xl p-4 hover:bg-blue-50 transition"
               >
-                <FaEnvelope className="text-blue-600 mt-1 text-xl" />
+                <FaEnvelope className="text-blue-600 mt-1 text-xl flex-shrink-0" />
 
                 <div>
                   <h3 className="font-semibold">Email Address</h3>
@@ -237,9 +266,11 @@ const ContactUs = () => {
                 </div>
               </a>
 
-              {/* WORKING HOURS */}
+              {/* ==============================
+                  WORKING HOURS
+              ============================== */}
               <div className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
-                <FaClock className="text-blue-600 mt-1 text-xl" />
+                <FaClock className="text-blue-600 mt-1 text-xl flex-shrink-0" />
 
                 <div>
                   <h3 className="font-semibold">Working Hours</h3>
@@ -251,7 +282,9 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* WHY US */}
+            {/* ==============================
+                WHY CHOOSE US
+            ============================== */}
             <div className="mt-8 bg-blue-600 text-white rounded-2xl p-6">
               <h3 className="text-xl font-bold mb-4">
                 Why Choose Capital Cleaning & Maintenance?
@@ -268,14 +301,18 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* ==============================
+              RIGHT SIDE
+          ============================== */}
           <div className="flex flex-col justify-between">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Our Services
               </h2>
 
-              {/* INTERNAL SERVICE LINKS */}
+              {/* ==============================
+                  INTERNAL SERVICE LINKS
+              ============================== */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {services.map((service) => (
                   <Link
@@ -290,7 +327,9 @@ const ContactUs = () => {
                 ))}
               </div>
 
-              {/* GOOGLE MAP */}
+              {/* ==============================
+                  GOOGLE MAP
+              ============================== */}
               <div className="mt-8">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">
                   Our Service Area
@@ -306,7 +345,9 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* CTA */}
+            {/* ==============================
+                CTA
+            ============================== */}
             <div className="mt-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center text-white">
               <h2 className="text-3xl font-bold">Need Professional Service?</h2>
 
@@ -316,6 +357,7 @@ const ContactUs = () => {
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mt-8">
+                {/* WhatsApp */}
                 <a
                   href={whatsappLink}
                   target="_blank"
@@ -327,6 +369,7 @@ const ContactUs = () => {
                   Chat on WhatsApp
                 </a>
 
+                {/* Phone */}
                 <a
                   href="tel:+923137332085"
                   onClick={trackCallConversion}

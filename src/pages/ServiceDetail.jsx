@@ -69,16 +69,15 @@ function ServiceDetail() {
           url="https://capitalcleaning.site/service/pest-control"
           image={`https://capitalcleaning.site${service.hero}`}
         />
-        {/* ONLY 3 PEST CONTROL CARDS */}
 
         <section className="bg-[#F9FBFF] min-h-screen py-5">
           <div className="max-w-7xl mx-auto px-6">
-            {/* ONLY 3 PEST CONTROL CARDS */}
             <div className="text-center mb-10">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                 Pest Control Services
               </h1>
             </div>
+
             <div className="grid md:grid-cols-3 gap-8">
               {pestSubServices.map((subService) => (
                 <Link
@@ -86,7 +85,6 @@ function ServiceDetail() {
                   to={`/service/${subService.slug}`}
                   className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
                 >
-                  {/* IMAGE */}
                   <div className="overflow-hidden">
                     <img
                       src={subService.hero}
@@ -95,7 +93,6 @@ function ServiceDetail() {
                     />
                   </div>
 
-                  {/* CONTENT */}
                   <div className="p-7">
                     <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition">
                       {subService.title}
@@ -133,13 +130,13 @@ function ServiceDetail() {
     )
     .slice(0, 6);
 
+  // WhatsApp booking link
   const whatsappLink = `https://wa.me/923137332085?text=${encodeURIComponent(
     `Hi, I want to book ${service.title}`,
   )}`;
 
   return (
     <>
-      {/* SEO */}
       <SEO
         title={`${service.title} Islamabad & Rawalpindi | Capital Cleaning & Maintenance`}
         description={service.desc}
