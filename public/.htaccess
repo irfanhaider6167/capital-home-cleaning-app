@@ -2,6 +2,9 @@ RewriteEngine On
 
 RewriteBase /
 
+# Redirect old incorrect URL to the correct Plumbing URL
+RewriteRule ^service/plumbring/?$ /service/plumbing [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
