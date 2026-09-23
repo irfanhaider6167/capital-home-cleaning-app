@@ -74,7 +74,7 @@ function ServiceDetail() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Pest Control Services
+                Pest Control Services in Islamabad & Rawalpindi
               </h1>
             </div>
 

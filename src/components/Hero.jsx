@@ -8,6 +8,12 @@ function Hero() {
 
   const slides = [
     {
+      title: "Home Deep Cleaning",
+      highlight: "Islamabad & Rawalpindi",
+      desc: "Professional home deep cleaning using quality solutions and professional equipment.",
+      image: "/images/deep-cleaning-a-final.webp",
+    },
+    {
       title: "Sofa Cleaning",
       highlight: "Islamabad & Rawalpindi",
       desc: "Professional sofa cleaning to remove stains, dust and unpleasant odors.",
@@ -20,21 +26,9 @@ function Hero() {
       image: "/images/carpet-after.webp",
     },
     {
-      title: "Home Deep Cleaning",
-      highlight: "Islamabad & Rawalpindi",
-      desc: "Thorough home deep cleaning using professional equipment and quality solutions.",
-      image: "/images/deep-cleaning-a-final.webp",
-    },
-    {
-      title: "Office Cleaning",
-      highlight: "Islamabad & Rawalpindi",
-      desc: "Reliable cleaning solutions for offices, workplaces and commercial spaces.",
-      image: "/images/office-cleaning-a-final.jpg",
-    },
-    {
       title: "Mattress Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional mattress cleaning to remove stains, dust and unpleasant odors.",
+      desc: "Professional mattress cleaning to remove dust, stains and unpleasant odors.",
       image: "/images/mattress-after.webp",
     },
     {
@@ -44,28 +38,22 @@ function Hero() {
       image: "/images/water-tank-after.webp",
     },
     {
-      title: "Pest Control Services",
+      title: "Office Cleaning",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional pest control solutions to help protect your home or business from common pest infestations.",
-      image: "/images/pest-control-after.webp",
+      desc: "Reliable cleaning solutions for offices, workplaces and commercial spaces.",
+      image: "/images/office-cleaning-a-final.jpg",
     },
     {
-      title: "Painting Services",
+      title: "Pest Control Services",
       highlight: "Islamabad & Rawalpindi",
-      desc: "Professional interior and exterior painting for homes and commercial spaces.",
-      image: "/images/paint-a-final.jpg",
+      desc: "Professional termite control, cockroach control and bed bug control for homes and businesses.",
+      image: "/images/pest-control-after.webp",
     },
     {
       title: "Plumbing Services",
       highlight: "Islamabad & Rawalpindi",
       desc: "Professional plumbing repair, installation and maintenance services.",
       image: "/images/plumbring-a-final.jpg",
-    },
-    {
-      title: "Electrical Services",
-      highlight: "Islamabad & Rawalpindi",
-      desc: "Reliable electrical installation, repair and maintenance solutions.",
-      image: "/images/electrition-a-final.webp",
     },
   ];
 
@@ -98,17 +86,17 @@ function Hero() {
         {/* LEFT CONTENT */}
         <div className="text-center md:text-left">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-4xl">
-            Cleaning, Pest Control & Maintenance Services in{" "}
+            Cleaning & Maintenance Services in{" "}
             <span className="text-blue-600">Islamabad & Rawalpindi</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 md:mx-0">
-            Capital Cleaning & Maintenance provides reliable professional
-            cleaning, pest control and maintenance services for homes,
-            apartments, offices and commercial spaces. From home deep cleaning,
-            sofa and carpet cleaning to pest control, painting, plumbing and
-            electrical services, our team provides practical solutions for your
-            property maintenance needs.
+            Capital Cleaning & Maintenance provides professional cleaning, pest
+            control and maintenance services in Islamabad & Rawalpindi for
+            homes, apartments, offices and commercial spaces. Our services
+            include home deep cleaning, sofa cleaning, carpet cleaning, mattress
+            cleaning, water tank cleaning, termite control, cockroach control,
+            bed bug control and plumbing services.
           </p>
 
           {/* Trust Points */}
