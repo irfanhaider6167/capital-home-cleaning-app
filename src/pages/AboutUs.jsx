@@ -75,8 +75,7 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>
-          About Capital Cleaning & Maintenance | Cleaning, Pest Control &
-          Maintenance Services Islamabad & Rawalpindi
+          About Capital Cleaning & Maintenance | Islamabad & Rawalpindi
         </title>
 
         <meta
