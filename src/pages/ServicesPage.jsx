@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { trackWhatsAppConversion } from "../utils/googleAds";
 
 import {
@@ -13,7 +13,6 @@ import {
   FaBolt,
   FaBed,
   FaBug,
-  FaShieldAlt,
 } from "react-icons/fa";
 
 import { FaRug } from "react-icons/fa6";
@@ -24,7 +23,6 @@ import { FaRug } from "react-icons/fa6";
 
 function ImageSlider({ images, service }) {
   const [index, setIndex] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,31 +34,33 @@ function ImageSlider({ images, service }) {
 
   return (
     <div className="relative overflow-hidden rounded-t-3xl h-44">
-      <motion.div
-        className="flex h-full"
-        animate={{
-          x: `-${index * 100}%`,
-        }}
-        transition={{
-          duration: 0.7,
-        }}
+      <Link
+        to={`/service/${service.slug}`}
+        aria-label={`View ${service.title}`}
+        className="block h-full"
       >
-        {images.map((img, i) => (
-          <div
-            key={i}
-            className="w-full flex-shrink-0 cursor-pointer"
-            onClick={() => navigate(`/service/${service.slug}`)}
-          >
-            <img
-              src={img}
-              alt={`${service.title} in Islamabad and Rawalpindi`}
-              className="w-full h-44 object-cover"
-            />
-          </div>
-        ))}
-      </motion.div>
+        <motion.div
+          className="flex h-full"
+          animate={{
+            x: `-${index * 100}%`,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+        >
+          {images.map((img, i) => (
+            <div key={i} className="w-full flex-shrink-0">
+              <img
+                src={img}
+                alt={`${service.title} in Islamabad and Rawalpindi`}
+                className="w-full h-44 object-cover"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </Link>
 
-      <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+      <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-3 py-1 rounded-full pointer-events-none">
         Before / After
       </div>
     </div>
@@ -184,9 +184,9 @@ function ServicesPage() {
         </h2>
 
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
-              key={index}
+              key={service.slug}
               initial={{
                 opacity: 0,
                 y: 40,
@@ -206,6 +206,7 @@ function ServicesPage() {
               }}
               className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100"
             >
+              {/* CLICKABLE SERVICE IMAGE */}
               <ImageSlider images={service.images} service={service} />
 
               <div className="p-5 text-center">
@@ -213,6 +214,7 @@ function ServicesPage() {
                   {service.icon}
                 </div>
 
+                {/* SERVICE TITLE LINK */}
                 <h3 className="font-bold text-lg text-gray-900">
                   <Link
                     to={`/service/${service.slug}`}
@@ -226,6 +228,7 @@ function ServicesPage() {
                   {service.desc}
                 </p>
 
+                {/* WHATSAPP BOOKING */}
                 <a
                   href={whatsappLink}
                   onClick={trackWhatsAppConversion}
@@ -238,6 +241,16 @@ function ServicesPage() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* SERVICES PAGE INTERNAL LINK */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center justify-center bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition"
+          >
+            View All Services
+          </Link>
         </div>
       </div>
     </section>

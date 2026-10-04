@@ -19,6 +19,87 @@ function Home() {
       {/* Services Section */}
       <ServicesPage />
 
+      {/* Internal Service Links */}
+      {/* <section className="bg-blue-50 px-4 py-10">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-6 text-center text-2xl font-bold text-gray-900 md:text-3xl">
+            Our Professional Services
+          </h2>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            <a
+              href="/service/home-deep-cleaning"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Home Deep Cleaning
+            </a>
+
+            <a
+              href="/service/sofa-cleaning"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Sofa Cleaning
+            </a>
+
+            <a
+              href="/service/carpet-cleaning"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Carpet Cleaning
+            </a>
+
+            <a
+              href="/service/mattress-cleaning"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Mattress Cleaning
+            </a>
+
+            <a
+              href="/service/water-tank-cleaning"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Water Tank Cleaning
+            </a>
+
+            <a
+              href="/service/termite-control"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Termite Control
+            </a>
+
+            <a
+              href="/service/cockroach-control"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Cockroach Control
+            </a>
+
+            <a
+              href="/service/bed-bug-control"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Bed Bug Control
+            </a>
+
+            <a
+              href="/services"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              View All Services
+            </a>
+
+            <a
+              href="/contact"
+              className="rounded-lg bg-white px-4 py-3 text-center text-sm font-medium text-blue-700 shadow-sm transition hover:bg-blue-700 hover:text-white"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </section> */}
+
       {/* SEO Content */}
       <section className="bg-white px-4 py-14">
         <div className="mx-auto max-w-6xl">
@@ -37,19 +118,72 @@ function Home() {
             </p>
 
             <p>
-              Our cleaning services include home deep cleaning, office cleaning,
-              sofa cleaning, carpet cleaning, mattress cleaning and water tank
-              cleaning. Whether you need complete home deep cleaning or a
-              specific cleaning service, we can assist with your requirements
-              and arrange a convenient service time.
+              Our cleaning services include{" "}
+              <a
+                href="/service/home-deep-cleaning"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                home deep cleaning
+              </a>
+              , office cleaning,{" "}
+              <a
+                href="/service/sofa-cleaning"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                sofa cleaning
+              </a>
+              ,{" "}
+              <a
+                href="/service/carpet-cleaning"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                carpet cleaning
+              </a>
+              ,{" "}
+              <a
+                href="/service/mattress-cleaning"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                mattress cleaning
+              </a>{" "}
+              and{" "}
+              <a
+                href="/service/water-tank-cleaning"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                water tank cleaning
+              </a>
+              . Whether you need complete home deep cleaning or a specific
+              cleaning service, we can assist with your requirements and arrange
+              a convenient service time.
             </p>
 
             <p>
               We also provide professional pest control services in Islamabad
-              and Rawalpindi, including termite control, cockroach control and
-              bed bug control. Our pest control services are available for
-              residential and commercial properties and are designed to help
-              control common pest infestations in affected areas.
+              and Rawalpindi, including{" "}
+              <a
+                href="/service/termite-control"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                termite control
+              </a>
+              ,{" "}
+              <a
+                href="/service/cockroach-control"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                cockroach control
+              </a>{" "}
+              and{" "}
+              <a
+                href="/service/bed-bug-control"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                bed bug control
+              </a>
+              . Our pest control services are available for residential and
+              commercial properties and are designed to help control common pest
+              infestations in affected areas.
             </p>
 
             <p>
@@ -78,8 +212,22 @@ function Home() {
             <p>
               If you are looking for cleaning, pest control or maintenance
               services in Islamabad or Rawalpindi, Capital Cleaning &
-              Maintenance is ready to assist. Contact us to discuss your
-              requirements, get a quotation and book a convenient service time.
+              Maintenance is ready to assist. Visit our{" "}
+              <a
+                href="/services"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                services page
+              </a>{" "}
+              to explore available services or{" "}
+              <a
+                href="/contact"
+                className="font-medium text-blue-700 hover:underline"
+              >
+                contact us
+              </a>{" "}
+              to discuss your requirements, get a quotation and book a
+              convenient service time.
             </p>
           </div>
         </div>
