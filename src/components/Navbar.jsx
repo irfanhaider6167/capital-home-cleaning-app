@@ -12,7 +12,10 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const linkStyle = ({ isActive }) =>
@@ -25,16 +28,20 @@ function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-${
-  scrolled
-    ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/40"
-    : "bg-gradient-to-r from-[#EFF6FF] via-white to-[#DBEAFE] backdrop-blur-md"
-}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/40"
+          : "bg-gradient-to-r from-[#EFF6FF] via-white to-[#DBEAFE] backdrop-blur-md"
+      }`}
+      aria-label="Main navigation"
     >
       <div className="px-2 py-6 h-10 flex justify-between items-center max-w-7xl mx-auto">
-        {/* PREMIUM LOGO */}
-        <div className="flex flex-col items-center leading-none">
+        {/* PREMIUM LOGO - LINKS TO HOMEPAGE */}
+        <NavLink
+          to="/"
+          aria-label="Capital Cleaning & Maintenance - Home"
+          className="flex flex-col items-center leading-none"
+        >
           <h2 className="text-2xl md:text-3xl font-black text-[#1D4ED8] tracking-[2px] leading-none">
             CAPITAL
           </h2>
@@ -43,16 +50,16 @@ ${
             <div className="w-6 h-[2px] bg-[#1D4ED8] rounded-full"></div>
 
             <p
-              className="text-xs md:text-sm font-extrabold tracking-[5px] leading-none 
-      bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#60A5FA] 
-      text-transparent bg-clip-text"
+              className="text-xs md:text-sm font-extrabold tracking-[5px] leading-none
+              bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#60A5FA]
+              text-transparent bg-clip-text"
             >
               C&M
             </p>
 
             <div className="w-6 h-[2px] bg-[#1D4ED8] rounded-full"></div>
           </div>
-        </div>
+        </NavLink>
 
         {/* DESKTOP MENU */}
         <ul className="hidden md:!flex gap-6 items-center text-sm">
@@ -61,16 +68,19 @@ ${
               Home
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/services" className={linkStyle}>
               Services
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/about" className={linkStyle}>
               About
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/contact" className={linkStyle}>
               Contact
@@ -78,9 +88,12 @@ ${
           </li>
         </ul>
 
-        {/* MOBILE BUTTON */}
-        {/* MOBILE BUTTON */}
+        {/* MOBILE MENU BUTTON */}
         <button
+          type="button"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
           className="md:hidden text-3xl transition-colors duration-300 text-[#1D4ED8] hover:text-blue-700"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -90,6 +103,7 @@ ${
 
       {/* MOBILE MENU */}
       <div
+        id="mobile-navigation"
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -98,7 +112,7 @@ ${
           <NavLink
             to="/"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700"
+            className="block text-gray-600 hover:text-blue-700 transition-colors"
           >
             Home
           </NavLink>
@@ -106,7 +120,7 @@ ${
           <NavLink
             to="/services"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700"
+            className="block text-gray-600 hover:text-blue-700 transition-colors"
           >
             Services
           </NavLink>
@@ -114,7 +128,7 @@ ${
           <NavLink
             to="/about"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700"
+            className="block text-gray-600 hover:text-blue-700 transition-colors"
           >
             About
           </NavLink>
@@ -122,7 +136,7 @@ ${
           <NavLink
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700"
+            className="block text-gray-600 hover:text-blue-700 transition-colors"
           >
             Contact
           </NavLink>
