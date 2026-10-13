@@ -39,6 +39,7 @@ function ServiceDetail() {
     "carpet-cleaning",
     "mattress-cleaning",
     "water-tank-cleaning",
+    "solar-panel-cleaning",
   ];
 
   // Correct wording for Before / After sections

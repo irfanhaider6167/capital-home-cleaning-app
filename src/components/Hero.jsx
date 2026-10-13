@@ -38,6 +38,12 @@ function Hero() {
       image: "/images/water-tank-after.webp",
     },
     {
+      title: "Solar Panel Cleaning",
+      highlight: "Islamabad & Rawalpindi",
+      desc: "Professional cleaning for solar panels to maintain their performance and efficiency.",
+      image: "/images/solar-panel-cleaning-after.webp",
+    },
+    {
       title: "Office Cleaning",
       highlight: "Islamabad & Rawalpindi",
       desc: "Reliable cleaning solutions for offices, workplaces and commercial spaces.",
@@ -79,28 +85,113 @@ function Hero() {
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Decorative Background */}
       <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
-
       <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-indigo-300/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 md:grid-cols-2 md:gap-14 md:py-20 lg:py-8">
-        {/* LEFT CONTENT */}
-        <div className="text-center md:text-left">
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-4xl">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-8 sm:gap-12 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-14 md:py-20 lg:py-8">
+        {/* RIGHT SLIDER - TOP ON MOBILE, RIGHT ON DESKTOP */}
+        <div className="relative order-1 min-w-0 md:order-2">
+          <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200 sm:rounded-3xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -80 }}
+                transition={{
+                  duration: 0.45,
+                  ease: "easeOut",
+                }}
+                className="relative"
+              >
+                <img
+                  src={slides[current].image}
+                  alt={`${slides[current].title} in Islamabad and Rawalpindi`}
+                  fetchPriority={current === 0 ? "high" : "auto"}
+                  className="h-[280px] w-full object-cover sm:h-[430px] lg:h-[500px]"
+                />
+
+                {/* Image Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+                {/* Slide Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 pb-10 sm:p-8 sm:pb-12">
+                  <span className="inline-block rounded-full bg-blue-600 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white sm:text-xs">
+                    Capital Cleaning & Maintenance
+                  </span>
+
+                  <h2 className="mt-3 text-xl font-bold text-white sm:text-3xl">
+                    {slides[current].title}
+                  </h2>
+
+                  <p className="mt-1 text-sm font-semibold text-blue-200 sm:text-base">
+                    {slides[current].highlight}
+                  </p>
+
+                  <p className="mt-2 max-w-lg text-sm leading-6 text-gray-200 sm:text-base">
+                    {slides[current].desc}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Previous Button */}
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous service"
+              className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/50 text-gray-800 shadow-lg transition hover:bg-blue-600 hover:text-white sm:left-4 sm:h-10 sm:w-10"
+            >
+              ❮
+            </button>
+
+            {/* Next Button */}
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next service"
+              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/50 text-gray-800 shadow-lg transition hover:bg-blue-600 hover:text-white sm:right-4 sm:h-10 sm:w-10"
+            >
+              ❯
+            </button>
+
+            {/* Slider Indicators */}
+            <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 sm:bottom-4">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  onClick={() => setCurrent(index)}
+                  aria-label={`Show ${slide.title}`}
+                  aria-current={current === index ? "true" : undefined}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    current === index
+                      ? "w-8 bg-white"
+                      : "w-2 bg-white/60 hover:bg-white"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* LEFT CONTENT - BELOW SLIDER ON MOBILE, LEFT ON DESKTOP */}
+        <div className="order-2 min-w-0 text-center md:order-1 md:text-left">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-4xl">
             Cleaning & Maintenance Services in{" "}
             <span className="text-blue-600">Islamabad & Rawalpindi</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 md:mx-0">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-gray-600 sm:mt-6 sm:text-lg sm:leading-8 md:mx-0">
             Capital Cleaning & Maintenance provides professional cleaning, pest
             control and maintenance services in Islamabad & Rawalpindi for
             homes, apartments, offices and commercial spaces. Our services
             include home deep cleaning, sofa cleaning, carpet cleaning, mattress
-            cleaning, water tank cleaning, termite control, cockroach control,
-            bed bug control and plumbing services.
+            cleaning, water tank cleaning, solar panel cleaning, termite
+            control, cockroach control, bed bug control and plumbing services.
           </p>
 
           {/* Trust Points */}
-          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-medium text-gray-700 md:justify-start">
+          <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-medium text-gray-700 md:justify-start">
             <span className="flex items-center gap-2">
               <span className="text-blue-600">✓</span>
               Professional Team
@@ -143,90 +234,6 @@ function Hero() {
           <p className="mt-4 text-sm text-gray-500">
             Quick response • Easy booking • Professional service
           </p>
-        </div>
-
-        {/* RIGHT SLIDER */}
-        <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-gray-200">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, x: 80 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
-                transition={{
-                  duration: 0.45,
-                  ease: "easeOut",
-                }}
-                className="relative"
-              >
-                <img
-                  src={slides[current].image}
-                  alt={`${slides[current].title} in Islamabad and Rawalpindi`}
-                  className="h-[380px] w-full object-cover sm:h-[430px] lg:h-[500px]"
-                />
-
-                {/* Image Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-
-                {/* Slide Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                  <span className="inline-block rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                    Capital Cleaning & Maintenance
-                  </span>
-
-                  <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
-                    {slides[current].title}
-                  </h2>
-
-                  <p className="mt-1 font-semibold text-blue-200">
-                    {slides[current].highlight}
-                  </p>
-
-                  <p className="mt-2 max-w-lg text-sm leading-6 text-gray-200 sm:text-base">
-                    {slides[current].desc}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Previous Button */}
-            <button
-              type="button"
-              onClick={prevSlide}
-              aria-label="Previous service"
-              className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:bg-blue-600 hover:text-white"
-            >
-              ❮
-            </button>
-
-            {/* Next Button */}
-            <button
-              type="button"
-              onClick={nextSlide}
-              aria-label="Next service"
-              className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-lg transition hover:bg-blue-600 hover:text-white"
-            >
-              ❯
-            </button>
-
-            {/* Slider Indicators */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-              {slides.map((slide, index) => (
-                <button
-                  key={slide.title}
-                  type="button"
-                  onClick={() => setCurrent(index)}
-                  aria-label={`Show ${slide.title}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    current === index
-                      ? "w-8 bg-white"
-                      : "w-2 bg-white/60 hover:bg-white"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

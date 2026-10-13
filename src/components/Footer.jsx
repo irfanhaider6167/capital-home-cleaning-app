@@ -76,6 +76,12 @@ function Footer() {
             >
               Water Tank Cleaning
             </Link>
+            <Link
+              to="/service/solar-panel-cleaning"
+              className="text-gray-400 hover:text-blue-400 transition"
+            >
+              Solar Panel Cleaning
+            </Link>
 
             <Link
               to="/service/pest-control"

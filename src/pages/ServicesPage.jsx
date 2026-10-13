@@ -13,6 +13,7 @@ import {
   FaBolt,
   FaBed,
   FaBug,
+  FaSolarPanel,
 } from "react-icons/fa";
 
 import { FaRug } from "react-icons/fa6";
@@ -130,6 +131,16 @@ function ServicesPage() {
       images: [
         "/images/water-tank-before.webp",
         "/images/water-tank-after.webp",
+      ],
+    },
+    {
+      slug: "solar-panel-cleaning",
+      title: "Solar Panel Cleaning Islamabad & Rawalpindi",
+      desc: "Capital Cleaning & Maintenance provides professional Solar Panel Cleaning services in Islamabad & Rawalpindi, removing dust, dirt, bird droppings, and other buildup from residential and commercial solar panels to help maintain their performance and efficiency.",
+      icon: <FaSolarPanel />,
+      images: [
+        "/images/solar-panel-cleaning-before.webp",
+        "/images/solar-panel-cleaning-after.webp",
       ],
     },
 

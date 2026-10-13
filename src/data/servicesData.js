@@ -101,6 +101,23 @@ export const services = [
     ],
   },
   {
+    slug: "solar-panel-cleaning",
+    title: "Solar Panel Cleaning",
+    desc: "Capital Cleaning & Maintenance provides professional Solar Panel Cleaning services in Islamabad & Rawalpindi. We remove dust, dirt, bird droppings, and other buildup from solar panels to help maintain their performance and improve sunlight absorption. Our solar panel cleaning service helps keep residential and commercial solar systems clean and well-maintained.",
+    hero: "/images/solar-panel-cleaning-after.webp",
+    before: "/images/solar-panel-cleaning-before.webp",
+    after: "/images/solar-panel-cleaning-after.webp",
+    features: [
+      "Professional Solar Panel Cleaning",
+      "Dust & Dirt Removal",
+      "Bird Droppings & Stain Removal",
+      "Residential Solar Panel Cleaning",
+      "Commercial Solar Panel Cleaning",
+      "Solar Panel Cleaning in Islamabad",
+      "Solar Panel Cleaning in Rawalpindi",
+    ],
+  },
+  {
     slug: "pest-control",
     title: "Pest Control",
     desc: "Capital Cleaning & Maintenance provides professional Pest Control Services in Islamabad & Rawalpindi for homes, apartments, offices, and commercial properties. We provide pest treatment for common household pests and help maintain a cleaner, safer, and more hygienic environment.",

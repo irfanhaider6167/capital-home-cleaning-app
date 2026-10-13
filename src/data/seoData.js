@@ -1,4 +1,19 @@
 export const seoData = {
+  "home-deep-cleaning": {
+    title: "Home Deep Cleaning in Islamabad & Rawalpindi | Capital Cleaning",
+    description:
+      "Professional home deep cleaning in Islamabad & Rawalpindi for houses, apartments and villas. Thorough cleaning by an expert team.",
+    keywords:
+      "home deep cleaning Islamabad, home deep cleaning Rawalpindi, house cleaning Islamabad",
+  },
+
+  "office-cleaning": {
+    title: "Office Cleaning in Islamabad & Rawalpindi | Capital Cleaning",
+    description:
+      "Professional office cleaning in Islamabad & Rawalpindi for offices and commercial spaces. Reliable cleaning by an experienced team.",
+    keywords:
+      "office cleaning Islamabad, office cleaning Rawalpindi, commercial cleaning Islamabad",
+  },
   "sofa-cleaning": {
     title: "Sofa Cleaning in Islamabad & Rawalpindi | Capital Cleaning",
     description:
@@ -31,20 +46,12 @@ export const seoData = {
       "water tank cleaning Islamabad, water tank cleaning Rawalpindi, underground tank cleaning",
   },
 
-  "home-deep-cleaning": {
-    title: "Home Deep Cleaning in Islamabad & Rawalpindi | Capital Cleaning",
+  "solar-panel-cleaning": {
+    title: "Solar Panel Cleaning in Islamabad & Rawalpindi | Capital Cleaning",
     description:
-      "Professional home deep cleaning in Islamabad & Rawalpindi for houses, apartments and villas. Thorough cleaning by an expert team.",
+      "Professional solar panel cleaning services in Islamabad & Rawalpindi. Remove dust, dirt and buildup to help maintain your solar panels' performance.",
     keywords:
-      "home deep cleaning Islamabad, home deep cleaning Rawalpindi, house cleaning Islamabad",
-  },
-
-  "office-cleaning": {
-    title: "Office Cleaning in Islamabad & Rawalpindi | Capital Cleaning",
-    description:
-      "Professional office cleaning in Islamabad & Rawalpindi for offices and commercial spaces. Reliable cleaning by an experienced team.",
-    keywords:
-      "office cleaning Islamabad, office cleaning Rawalpindi, commercial cleaning Islamabad",
+      "solar panel cleaning Islamabad, solar panel cleaning Rawalpindi, solar panel cleaners Islamabad, solar panel washing Rawalpindi, solar system cleaning Islamabad",
   },
 
   painting: {
