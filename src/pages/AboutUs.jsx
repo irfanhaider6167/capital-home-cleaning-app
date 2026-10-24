@@ -1,12 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { trackWhatsAppConversion } from "../utils/googleAds";
+import { CITY_CONFIG } from "../config/cityConfig";
 
 const AboutUs = () => {
-  const whatsappLink =
-    "https://wa.me/923137332085?text=Hi%20I%20want%20to%20book%20Capital%20Cleaning%20and%20Maintenance%20services";
+  const location = useLocation();
+
+  // URL check karke active city config set karein
+  const isLahore = location.pathname.startsWith("/lahore");
+  const cityInfo = isLahore ? CITY_CONFIG.lahore : CITY_CONFIG.isb_rwp;
+
+  const whatsappLink = `${cityInfo.whatsappLink}?text=${encodeURIComponent(
+    `Hi, I want to book Capital Cleaning and Maintenance services in ${cityInfo.cityName}`,
+  )}`;
 
   const services = [
     {
@@ -42,20 +50,8 @@ const AboutUs = () => {
       slug: "water-tank-cleaning",
     },
     {
-      name: "Pest Control",
-      slug: "pest-control",
-    },
-    {
-      name: "Bed Bug Control",
-      slug: "bed-bug-control",
-    },
-    {
-      name: "Termite Control",
-      slug: "termite-control",
-    },
-    {
-      name: "Cockroach Control",
-      slug: "cockroach-control",
+      name: "Solar Panel Cleaning",
+      slug: "solar-panel-cleaning",
     },
     {
       name: "Painting Services",
@@ -75,22 +71,25 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>
-          About Capital Cleaning & Maintenance | Islamabad & Rawalpindi
+          About Capital Cleaning & Maintenance | Lahore, Islamabad & Rawalpindi
         </title>
 
         <meta
           name="description"
-          content="Learn about Capital Cleaning & Maintenance. We provide professional cleaning, pest control and maintenance services in Islamabad & Rawalpindi, including home deep cleaning, sofa, carpet, mattress and water tank cleaning, bed bug, termite and cockroach control, painting, plumbing and electrical services."
+          content="Learn about Capital Cleaning & Maintenance. We provide professional cleaning and maintenance services in Lahore, Islamabad & Rawalpindi, including home deep cleaning, sofa, carpet, mattress, water tank, and solar panel cleaning, painting, plumbing, and electrical services."
         />
 
         <meta
           name="keywords"
-          content="About Capital Cleaning, cleaning company Islamabad, cleaning company Rawalpindi, pest control Islamabad, pest control Rawalpindi, maintenance services Islamabad, maintenance services Rawalpindi, sofa cleaning Islamabad, carpet cleaning Islamabad, home deep cleaning Islamabad, mattress cleaning Islamabad, water tank cleaning Islamabad, bed bug control Islamabad, termite control Islamabad, cockroach control Islamabad, painting services Islamabad, plumbing services Islamabad, electrical services Islamabad"
+          content="About Capital Cleaning, cleaning company Lahore, cleaning company Islamabad, cleaning company Rawalpindi, maintenance services Lahore, maintenance services Islamabad, maintenance services Rawalpindi, sofa cleaning Lahore, carpet cleaning Lahore, home deep cleaning Lahore, mattress cleaning Lahore, water tank cleaning Lahore, solar panel cleaning Lahore, painting services, plumbing services, electrical services"
         />
 
         <meta name="robots" content="index, follow" />
 
-        <link rel="canonical" href="https://capitalcleaning.site/about" />
+        <link
+          rel="canonical"
+          href={`https://capitalcleaning.site${location.pathname}`}
+        />
 
         <meta
           property="og:title"
@@ -99,10 +98,13 @@ const AboutUs = () => {
 
         <meta
           property="og:description"
-          content="Professional cleaning, pest control and maintenance services in Islamabad & Rawalpindi."
+          content="Professional cleaning and maintenance services in Lahore, Islamabad & Rawalpindi."
         />
 
-        <meta property="og:url" content="https://capitalcleaning.site/about" />
+        <meta
+          property="og:url"
+          content={`https://capitalcleaning.site${location.pathname}`}
+        />
 
         <meta property="og:type" content="website" />
       </Helmet>
@@ -123,9 +125,9 @@ const AboutUs = () => {
           </h1>
 
           <p className="text-gray-600 mt-5 text-lg leading-relaxed">
-            Professional Cleaning, Pest Control & Maintenance Services in
-            Islamabad and Rawalpindi. We provide reliable solutions for homes,
-            apartments, offices and commercial properties.
+            Professional Cleaning & Maintenance Services in Lahore, Islamabad,
+            and Rawalpindi. We provide reliable solutions for homes, apartments,
+            offices, and commercial properties.
           </p>
         </motion.div>
 
@@ -148,44 +150,47 @@ const AboutUs = () => {
             </h2>
 
             <p className="text-gray-600 leading-relaxed">
-              Capital Cleaning & Maintenance is a professional service company
-              serving Islamabad and Rawalpindi. We provide cleaning, pest
-              control and maintenance solutions for homes, apartments, offices
+              Capital Cleaning & Maintenance is a premier service company
+              serving Lahore, Islamabad, and Rawalpindi. We provide professional
+              cleaning and maintenance solutions for homes, apartments, offices,
               and commercial properties.
               <br />
               <br />
               Our cleaning services include sofa cleaning, carpet cleaning,
               mattress cleaning, kitchen cleaning, washroom cleaning, home deep
-              cleaning, office cleaning and water tank cleaning. We use
-              professional equipment and suitable cleaning methods to help
-              maintain clean, hygienic and comfortable spaces.
+              cleaning, office cleaning, solar panel cleaning, and water tank
+              cleaning. We use modern equipment and eco-friendly techniques to
+              ensure clean, hygienic, and comfortable spaces.
               <br />
               <br />
-              We also provide professional pest control services including bed
-              bug control, termite control and cockroach control. In addition,
-              our maintenance services include painting, plumbing and electrical
-              solutions for residential and commercial properties.
+              In addition, our maintenance services offer comprehensive
+              painting, plumbing, and electrical solutions tailored for
+              residential and commercial spaces.
               <br />
               <br />
-              We proudly serve customers across Islamabad and Rawalpindi,
-              including Bahria Town, DHA Islamabad, DHA Rawalpindi, F-6, F-7,
-              F-8, F-10, F-11, E-11, G-10, G-11, I-8, Gulberg Islamabad and
-              surrounding areas.
+              We proudly serve customers across major locations including DHA
+              Lahore, Gulberg, Bahria Town Lahore, Bahria Town Rawalpindi, DHA
+              Islamabad, F & G Sectors, I-8, Gulberg Islamabad, and surrounding
+              areas.
             </p>
           </motion.div>
 
           {/* Services */}
           <div className="mb-10">
             <h2 className="text-3xl font-bold text-[#111827] mb-5">
-              Our Cleaning, Pest Control & Maintenance Services
+              Our Cleaning & Maintenance Services
             </h2>
 
             <div className="grid md:grid-cols-3 gap-4">
-              {services.map((service, index) =>
-                service.slug ? (
+              {services.map((service, index) => {
+                const targetPath = isLahore
+                  ? `/lahore/service/${service.slug}`
+                  : `/service/${service.slug}`;
+
+                return service.slug ? (
                   <Link
                     key={index}
-                    to={`/service/${service.slug}`}
+                    to={targetPath}
                     className="group bg-[#F3F6FF] p-4 rounded-xl text-gray-700 shadow-sm border border-transparent hover:border-blue-200 hover:bg-blue-50 hover:shadow-md transition-all duration-300 flex items-center justify-between gap-3"
                   >
                     <span className="flex items-center gap-2">
@@ -208,8 +213,8 @@ const AboutUs = () => {
                     <span className="text-green-600 font-bold">✔</span>
                     <span>{service.name}</span>
                   </div>
-                ),
-              )}
+                );
+              })}
             </div>
           </div>
 
@@ -224,9 +229,9 @@ const AboutUs = () => {
               </h3>
 
               <p className="text-gray-600">
-                To provide reliable and professional cleaning, pest control and
-                maintenance solutions in Islamabad and Rawalpindi while
-                maintaining quality, convenience and customer satisfaction.
+                To provide reliable, high-quality, and affordable cleaning and
+                maintenance solutions across Lahore, Islamabad, and Rawalpindi
+                while ensuring complete customer satisfaction and convenience.
               </p>
             </motion.div>
 
@@ -239,9 +244,9 @@ const AboutUs = () => {
               </h3>
 
               <p className="text-gray-600">
-                To become a trusted service provider in Islamabad and Rawalpindi
-                by delivering dependable cleaning, pest control and maintenance
-                services with professional standards.
+                To be the most trusted and preferred service provider in Lahore,
+                Islamabad, and Rawalpindi by delivering top-tier cleaning and
+                maintenance services with professional standards.
               </p>
             </motion.div>
           </div>
@@ -253,14 +258,14 @@ const AboutUs = () => {
             </h3>
 
             <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <p>✔ Experienced Service Professionals</p>
-              <p>✔ Professional Cleaning Equipment</p>
-              <p>✔ Cleaning & Pest Control Services</p>
+              <p>✔ Trained & Vetted Service Professionals</p>
+              <p>✔ Advanced Cleaning Equipment & Methods</p>
+              <p>✔ Residential & Commercial Deep Cleaning</p>
               <p>✔ Painting, Plumbing & Electrical Services</p>
-              <p>✔ Residential & Commercial Services</p>
-              <p>✔ Islamabad & Rawalpindi Coverage</p>
+              <p>✔ Full Lahore, Islamabad & Rawalpindi Coverage</p>
               <p>✔ Transparent & Affordable Pricing</p>
-              <p>✔ Quick WhatsApp Booking Support</p>
+              <p>✔ Dedicated Support & Quick Response</p>
+              <p>✔ Instant WhatsApp Booking Support</p>
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Main Pages -->
+  <!-- Main Pages (Islamabad / Rawalpindi Base) -->
   <url>
     <loc>https://capitalcleaning.site/</loc>
     <changefreq>weekly</changefreq>
@@ -26,7 +26,14 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Cleaning Services -->
+  <!-- Main Pages (Lahore Branch) -->
+  <url>
+    <loc>https://capitalcleaning.site/lahore</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Cleaning Services (Islamabad & Rawalpindi) -->
   <url>
     <loc>https://capitalcleaning.site/service/home-deep-cleaning</loc>
     <changefreq>monthly</changefreq>
@@ -69,36 +76,84 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Maintenance -->
+  <!-- Maintenance Services (Islamabad & Rawalpindi) -->
+  <url>
+    <loc>https://capitalcleaning.site/service/painting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://capitalcleaning.site/service/plumbing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Pest Control -->
   <url>
-    <loc>https://capitalcleaning.site/service/pest-control</loc>
+    <loc>https://capitalcleaning.site/service/electrical</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Dedicated Lahore Service Pages -->
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/home-deep-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/office-cleaning</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://capitalcleaning.site/service/bed-bug-control</loc>
+    <loc>https://capitalcleaning.site/lahore/service/sofa-cleaning</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://capitalcleaning.site/service/termite-control</loc>
+    <loc>https://capitalcleaning.site/lahore/service/mattress-cleaning</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://capitalcleaning.site/service/cockroach-control</loc>
+    <loc>https://capitalcleaning.site/lahore/service/carpet-cleaning</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/water-tank-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/solar-panel-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/painting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/plumbing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://capitalcleaning.site/lahore/service/electrical</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

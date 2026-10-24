@@ -1,11 +1,23 @@
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 import {
   trackWhatsAppConversion,
   trackCallConversion,
 } from "../utils/googleAds";
+import { CITY_CONFIG } from "../config/cityConfig";
 
 function FloatingActions() {
+  const location = useLocation();
+
+  // URL check karke active city config select karein
+  const isLahore = location.pathname.startsWith("/lahore");
+  const config = isLahore ? CITY_CONFIG.lahore : CITY_CONFIG.isb_rwp;
+
+  const whatsappMessage = encodeURIComponent(
+    `Hi, I need cleaning service in ${config.cityName}`,
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5, y: 50 }}
@@ -15,7 +27,7 @@ function FloatingActions() {
     >
       {/* CALL NOW */}
       <motion.a
-        href="tel:+923137332085"
+        href={`tel:${config.phone.replace(/[^0-9+]/g, "")}`}
         onClick={trackCallConversion}
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.9 }}
@@ -25,6 +37,7 @@ function FloatingActions() {
           duration: 2.5,
         }}
         className="relative bg-[#2563EB] text-white p-4 rounded-full shadow-xl"
+        aria-label={`Call ${config.cityName} team`}
       >
         <span className="absolute inset-0 rounded-full bg-blue-500 opacity-40 animate-ping"></span>
         <FaPhoneAlt size={20} />
@@ -32,7 +45,7 @@ function FloatingActions() {
 
       {/* WHATSAPP */}
       <motion.a
-        href="https://wa.me/923137332085?text=Hi%20I%20need%20cleaning%20service"
+        href={`${config.whatsappLink}?text=${whatsappMessage}`}
         target="_blank"
         rel="noreferrer"
         onClick={trackWhatsAppConversion}
@@ -44,6 +57,7 @@ function FloatingActions() {
           duration: 2.8,
         }}
         className="relative bg-green-500 text-white p-4 rounded-full shadow-xl"
+        aria-label={`WhatsApp ${config.cityName} team`}
       >
         <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping"></span>
         <FaWhatsapp size={22} />

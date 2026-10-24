@@ -15,16 +15,15 @@ function Footer() {
 
         {/* Business Description */}
         <p className="text-gray-400 mt-3 leading-7">
-          Professional cleaning, pest control and maintenance services in
-          Islamabad and Rawalpindi. We provide reliable solutions for homes,
-          apartments, offices and commercial properties.
+          Professional cleaning and maintenance services in Lahore, Islamabad,
+          and Rawalpindi. We provide reliable solutions for homes, apartments,
+          offices, and commercial properties.
         </p>
 
         {/* Service Highlights */}
         <div className="mt-6 text-sm text-gray-400 space-y-2">
-          <p>📍 Serving Islamabad & Rawalpindi</p>
+          <p>📍 Serving Lahore, Islamabad & Rawalpindi</p>
           <p>🧹 Professional Cleaning & Deep Cleaning Services</p>
-          <p>🐜 Professional Pest Control Services</p>
           <p>🛠️ Home & Commercial Maintenance Solutions</p>
         </div>
 
@@ -76,39 +75,12 @@ function Footer() {
             >
               Water Tank Cleaning
             </Link>
+
             <Link
               to="/service/solar-panel-cleaning"
               className="text-gray-400 hover:text-blue-400 transition"
             >
               Solar Panel Cleaning
-            </Link>
-
-            <Link
-              to="/service/pest-control"
-              className="text-gray-400 hover:text-blue-400 transition"
-            >
-              Pest Control
-            </Link>
-
-            <Link
-              to="/service/bed-bug-control"
-              className="text-gray-400 hover:text-blue-400 transition"
-            >
-              Bed Bug Control
-            </Link>
-
-            <Link
-              to="/service/termite-control"
-              className="text-gray-400 hover:text-blue-400 transition"
-            >
-              Termite Control
-            </Link>
-
-            <Link
-              to="/service/cockroach-control"
-              className="text-gray-400 hover:text-blue-400 transition"
-            >
-              Cockroach Control
             </Link>
 
             <Link
@@ -168,8 +140,8 @@ function Footer() {
         <div className="mt-8 border-t border-gray-700 pt-4">
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} Capital Cleaning & Maintenance.
-            Professional Cleaning, Pest Control & Maintenance Services in
-            Islamabad & Rawalpindi. All Rights Reserved.
+            Professional Cleaning & Maintenance Services in Lahore, Islamabad &
+            Rawalpindi. All Rights Reserved.
           </p>
         </div>
       </div>

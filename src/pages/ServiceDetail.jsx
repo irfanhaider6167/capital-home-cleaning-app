@@ -23,14 +23,6 @@ function ServiceDetail() {
     );
   }
 
-  // Pest Control services
-  const pestControlSlugs = [
-    "pest-control",
-    "bed-bug-control",
-    "termite-control",
-    "cockroach-control",
-  ];
-
   // Cleaning services
   const cleaningSlugs = [
     "home-deep-cleaning",
@@ -43,92 +35,11 @@ function ServiceDetail() {
   ];
 
   // Correct wording for Before / After sections
-  const processLabel = pestControlSlugs.includes(slug)
-    ? "Treatment"
-    : cleaningSlugs.includes(slug)
-      ? "Cleaning"
-      : "Service";
+  const processLabel = cleaningSlugs.includes(slug) ? "Cleaning" : "Service";
 
-  // Pest Control Sub-services
-  const pestSubServices = services.filter((item) =>
-    ["bed-bug-control", "termite-control", "cockroach-control"].includes(
-      item.slug,
-    ),
-  );
-
-  // ==========================================
-  // PEST CONTROL MAIN PAGE
-  // ONLY 3 SUB-SERVICE CARDS
-  // ==========================================
-  if (slug === "pest-control") {
-    return (
-      <>
-        <SEO
-          title="Pest Control Islamabad & Rawalpindi | Capital Cleaning & Maintenance"
-          description={service.desc}
-          keywords="pest control Islamabad, pest control Rawalpindi, bed bug control Islamabad, termite control Islamabad, cockroach control Islamabad"
-          url="https://capitalcleaning.site/service/pest-control"
-          image={`https://capitalcleaning.site${service.hero}`}
-        />
-
-        <section className="bg-[#F9FBFF] min-h-screen py-5">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-10">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Pest Control Services in Islamabad & Rawalpindi
-              </h1>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {pestSubServices.map((subService) => (
-                <Link
-                  key={subService.slug}
-                  to={`/service/${subService.slug}`}
-                  className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300"
-                >
-                  <div className="overflow-hidden">
-                    <img
-                      src={subService.hero}
-                      alt={`${subService.title} in Islamabad and Rawalpindi`}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
-
-                  <div className="p-7">
-                    <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition">
-                      {subService.title}
-                    </h2>
-
-                    <p className="mt-4 text-gray-600 leading-7">
-                      {subService.desc}
-                    </p>
-
-                    <div className="mt-6 flex items-center gap-2 text-blue-600 font-semibold">
-                      View Service
-                      <FaArrowRight className="text-sm group-hover:translate-x-1 transition" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      </>
-    );
-  }
-
-  // ==========================================
-  // OTHER SERVICE DETAIL PAGES
-  // ==========================================
-
+  // Related Services (excluding current service)
   const relatedServices = services
-    .filter(
-      (item) =>
-        item.slug !== slug &&
-        !["bed-bug-control", "termite-control", "cockroach-control"].includes(
-          item.slug,
-        ),
-    )
+    .filter((item) => item.slug !== slug)
     .slice(0, 6);
 
   // WhatsApp booking link
@@ -263,7 +174,7 @@ function ServiceDetail() {
                     </div>
 
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">
+                      <h3 className="text-1xl font-bold text-gray-900 group-hover:text-blue-600 transition">
                         {relatedService.title}
                       </h3>
 

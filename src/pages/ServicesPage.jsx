@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { trackWhatsAppConversion } from "../utils/googleAds";
+import { CITY_CONFIG } from "../config/cityConfig";
 
 import {
   FaHome,
@@ -12,7 +13,6 @@ import {
   FaWrench,
   FaBolt,
   FaBed,
-  FaBug,
   FaSolarPanel,
 } from "react-icons/fa";
 
@@ -22,7 +22,7 @@ import { FaRug } from "react-icons/fa6";
       IMAGE SLIDER
 ========================= */
 
-function ImageSlider({ images, service }) {
+function ImageSlider({ images, service, isLahore }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -33,10 +33,14 @@ function ImageSlider({ images, service }) {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const targetPath = isLahore
+    ? `/lahore/service/${service.slug}`
+    : `/service/${service.slug}`;
+
   return (
     <div className="relative overflow-hidden rounded-t-3xl h-44">
       <Link
-        to={`/service/${service.slug}`}
+        to={targetPath}
         aria-label={`View ${service.title}`}
         className="block h-full"
       >
@@ -53,7 +57,7 @@ function ImageSlider({ images, service }) {
             <div key={i} className="w-full flex-shrink-0">
               <img
                 src={img}
-                alt={`${service.title} in Islamabad and Rawalpindi`}
+                alt={`${service.title} in ${isLahore ? "Lahore" : "Islamabad and Rawalpindi"}`}
                 className="w-full h-44 object-cover"
               />
             </div>
@@ -73,14 +77,21 @@ function ImageSlider({ images, service }) {
 ========================= */
 
 function ServicesPage() {
-  const whatsappLink =
-    "https://wa.me/923137332085?text=Hi%20I%20want%20to%20book%20Capital%20Cleaning%20service";
+  const location = useLocation();
+
+  // URL check karke dynamic city config load karein
+  const isLahore = location.pathname.startsWith("/lahore");
+  const cityInfo = isLahore ? CITY_CONFIG.lahore : CITY_CONFIG.isb_rwp;
+
+  const whatsappLink = `${cityInfo.whatsappLink}?text=${encodeURIComponent(
+    `Hi, I want to book Capital Cleaning service in ${cityInfo.cityName}`,
+  )}`;
 
   const services = [
     {
       slug: "home-deep-cleaning",
-      title: "Home Deep Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Home Deep Cleaning services in Islamabad & Rawalpindi, offering complete cleaning solutions for kitchens, washrooms, floors, furniture, and residential properties.",
+      title: `Home Deep Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Home Deep Cleaning services in ${cityInfo.cityName}, offering complete cleaning solutions for kitchens, washrooms, floors, furniture, and residential properties.`,
       icon: <FaHome />,
       images: [
         "/images/house-cleaning-b-final.jpg",
@@ -90,8 +101,8 @@ function ServicesPage() {
 
     {
       slug: "office-cleaning",
-      title: "Office Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Office Cleaning services in Islamabad & Rawalpindi, creating clean, organized, and hygienic workplaces with reliable commercial cleaning solutions.",
+      title: `Office Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Office Cleaning services in ${cityInfo.cityName}, creating clean, organized, and hygienic workplaces with reliable commercial cleaning solutions.`,
       icon: <FaBuilding />,
       images: [
         "/images/office-cleaning-b-final.jpg",
@@ -101,42 +112,43 @@ function ServicesPage() {
 
     {
       slug: "sofa-cleaning",
-      title: "Sofa Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Sofa Cleaning services in Islamabad & Rawalpindi, removing stains, dust, dirt, and bad odors to restore freshness and hygiene to your sofas.",
+      title: `Sofa Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Sofa Cleaning services in ${cityInfo.cityName}, removing stains, dust, dirt, and bad odors to restore freshness and hygiene to your sofas.`,
       icon: <FaCouch />,
       images: ["/images/sofa-before.webp", "/images/sofa-after.webp"],
     },
 
     {
       slug: "mattress-cleaning",
-      title: "Mattress Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Mattress Cleaning services in Islamabad & Rawalpindi, removing dust, stains, allergens, and odors for a cleaner and healthier sleeping environment.",
+      title: `Mattress Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Mattress Cleaning services in ${cityInfo.cityName}, removing dust, stains, allergens, and odors for a cleaner and healthier sleeping environment.`,
       icon: <FaBed />,
       images: ["/images/mattress-before.webp", "/images/mattress-after.webp"],
     },
 
     {
       slug: "carpet-cleaning",
-      title: "Carpet Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Carpet Cleaning services in Islamabad & Rawalpindi, removing deep stains, dust, allergens, and odors to make carpets fresh, clean, and hygienic.",
+      title: `Carpet Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Carpet Cleaning services in ${cityInfo.cityName}, removing deep stains, dust, allergens, and odors to make carpets fresh, clean, and hygienic.`,
       icon: <FaRug />,
       images: ["/images/carpet-before.webp", "/images/carpet-after.webp"],
     },
 
     {
       slug: "water-tank-cleaning",
-      title: "Water Tank Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Water Tank Cleaning services in Islamabad & Rawalpindi, removing dirt, sludge, bacteria, and contamination from underground and overhead water tanks.",
+      title: `Water Tank Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Water Tank Cleaning services in ${cityInfo.cityName}, removing dirt, sludge, bacteria, and contamination from underground and overhead water tanks.`,
       icon: <FaWater />,
       images: [
         "/images/water-tank-before.webp",
         "/images/water-tank-after.webp",
       ],
     },
+
     {
       slug: "solar-panel-cleaning",
-      title: "Solar Panel Cleaning Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Solar Panel Cleaning services in Islamabad & Rawalpindi, removing dust, dirt, bird droppings, and other buildup from residential and commercial solar panels to help maintain their performance and efficiency.",
+      title: `Solar Panel Cleaning ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Solar Panel Cleaning services in ${cityInfo.cityName}, removing dust, dirt, bird droppings, and other buildup from residential and commercial solar panels to help maintain their performance and efficiency.`,
       icon: <FaSolarPanel />,
       images: [
         "/images/solar-panel-cleaning-before.webp",
@@ -145,28 +157,17 @@ function ServicesPage() {
     },
 
     {
-      slug: "pest-control",
-      title: "Pest Control Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Pest Control services in Islamabad & Rawalpindi for homes, apartments, offices, and commercial properties. We help control common pests and maintain a cleaner and more hygienic environment.",
-      icon: <FaBug />,
-      images: [
-        "/images/pest-control-before.webp",
-        "/images/pest-control-after.webp",
-      ],
-    },
-
-    {
       slug: "painting",
-      title: "Home Painting Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Painting services in Islamabad & Rawalpindi, delivering quality painting solutions for homes and offices with smooth finishing and reliable workmanship.",
+      title: `Home Painting ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Painting services in ${cityInfo.cityName}, delivering quality painting solutions for homes and offices with smooth finishing and reliable workmanship.`,
       icon: <FaPaintBrush />,
       images: ["/images/paint-b-final.jpg", "/images/paint-a-final.jpg"],
     },
 
     {
       slug: "plumbing",
-      title: "Plumbing Services Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Plumbing services in Islamabad & Rawalpindi, including leakage repair, pipe installation, bathroom fittings, and maintenance solutions for homes and offices.",
+      title: `Plumbing Services ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Plumbing services in ${cityInfo.cityName}, including leakage repair, pipe installation, bathroom fittings, and maintenance solutions for homes and offices.`,
       icon: <FaWrench />,
       images: [
         "/images/plumbring-b-final.jpg",
@@ -176,8 +177,8 @@ function ServicesPage() {
 
     {
       slug: "electrical",
-      title: "Electrical Services Islamabad & Rawalpindi",
-      desc: "Capital Cleaning & Maintenance provides professional Electrical services in Islamabad & Rawalpindi, offering wiring, repair, installation, lighting, and maintenance solutions for homes and offices.",
+      title: `Electrical Services ${cityInfo.cityName}`,
+      desc: `Capital Cleaning & Maintenance provides professional Electrical services in ${cityInfo.cityName}, offering wiring, repair, installation, lighting, and maintenance solutions for homes and offices.`,
       icon: <FaBolt />,
       images: [
         "/images/electrition-b-final.jpg",
@@ -190,74 +191,84 @@ function ServicesPage() {
     <section className="py-16 bg-gradient-to-b from-[#EFF6FF] to-white">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-center text-4xl font-bold mb-12 text-[#111827]">
-          Our
-          <span className="text-blue-600"> Services</span>
+          Our <span className="text-blue-600">Services</span> in{" "}
+          {cityInfo.cityName}
         </h2>
 
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <motion.div
-              key={service.slug}
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              whileHover={{
-                scale: 1.04,
-              }}
-              transition={{
-                duration: 0.5,
-              }}
-              className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100"
-            >
-              {/* CLICKABLE SERVICE IMAGE */}
-              <ImageSlider images={service.images} service={service} />
+          {services.map((service) => {
+            const targetPath = isLahore
+              ? `/lahore/service/${service.slug}`
+              : `/service/${service.slug}`;
 
-              <div className="p-5 text-center">
-                <div className="text-blue-600 text-3xl flex justify-center mb-3">
-                  {service.icon}
-                </div>
+            return (
+              <motion.div
+                key={service.slug}
+                initial={{
+                  opacity: 0,
+                  y: 40,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                whileHover={{
+                  scale: 1.04,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+                className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100"
+              >
+                {/* CLICKABLE SERVICE IMAGE */}
+                <ImageSlider
+                  images={service.images}
+                  service={service}
+                  isLahore={isLahore}
+                />
 
-                {/* SERVICE TITLE LINK */}
-                <h3 className="font-bold text-lg text-gray-900">
-                  <Link
-                    to={`/service/${service.slug}`}
-                    className="hover:text-blue-600 transition"
+                <div className="p-5 text-center">
+                  <div className="text-blue-600 text-3xl flex justify-center mb-3">
+                    {service.icon}
+                  </div>
+
+                  {/* SERVICE TITLE LINK */}
+                  <h3 className="font-bold text-lg text-gray-900">
+                    <Link
+                      to={targetPath}
+                      className="hover:text-blue-600 transition"
+                    >
+                      {service.title}
+                    </Link>
+                  </h3>
+
+                  <p className="text-gray-600 text-sm mt-3 leading-relaxed">
+                    {service.desc}
+                  </p>
+
+                  {/* WHATSAPP BOOKING */}
+                  <a
+                    href={whatsappLink}
+                    onClick={trackWhatsAppConversion}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 block bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
                   >
-                    {service.title}
-                  </Link>
-                </h3>
-
-                <p className="text-gray-600 text-sm mt-3 leading-relaxed">
-                  {service.desc}
-                </p>
-
-                {/* WHATSAPP BOOKING */}
-                <a
-                  href={whatsappLink}
-                  onClick={trackWhatsAppConversion}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 block bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
-                >
-                  Book Now 🚀
-                </a>
-              </div>
-            </motion.div>
-          ))}
+                    Book Now 🚀
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* SERVICES PAGE INTERNAL LINK */}
         <div className="mt-12 text-center">
           <Link
-            to="/services"
+            to={isLahore ? "/lahore" : "/services"}
             className="inline-flex items-center justify-center bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition"
           >
             View All Services

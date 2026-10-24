@@ -10,7 +10,7 @@ import {
   FaClock,
   FaArrowRight,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import {
   trackWhatsAppConversion,
@@ -19,16 +19,21 @@ import {
 } from "../utils/googleAds";
 
 import SEO from "../components/seo/SEO";
+import { CITY_CONFIG } from "../config/cityConfig";
 
 const ContactUs = () => {
-  // ==============================
-  // WhatsApp Link
-  // ==============================
-  const whatsappLink =
-    "https://wa.me/923137332085?text=Hi%20I%20want%20Cleaning%20and%20Maintenance%20service%20from%20Capital%20Cleaning%20and%20Maintenance";
+  const location = useLocation();
+
+  // Active City Config load karein
+  const isLahore = location.pathname.startsWith("/lahore");
+  const cityInfo = isLahore ? CITY_CONFIG.lahore : CITY_CONFIG.isb_rwp;
+
+  const whatsappLink = `${cityInfo.whatsappLink}?text=${encodeURIComponent(
+    `Hi, I want Cleaning and Maintenance service from Capital Cleaning and Maintenance in ${cityInfo.cityName}`,
+  )}`;
 
   // ==============================
-  // Services
+  // Services List (Pest Control Removed, Solar Added)
   // ==============================
   const services = [
     {
@@ -56,20 +61,8 @@ const ContactUs = () => {
       slug: "water-tank-cleaning",
     },
     {
-      title: "Pest Control",
-      slug: "pest-control",
-    },
-    {
-      title: "Bed Bug Control",
-      slug: "bed-bug-control",
-    },
-    {
-      title: "Termite Control",
-      slug: "termite-control",
-    },
-    {
-      title: "Cockroach Control",
-      slug: "cockroach-control",
+      title: "Solar Panel Cleaning",
+      slug: "solar-panel-cleaning",
     },
     {
       title: "Painting",
@@ -91,10 +84,10 @@ const ContactUs = () => {
           SEO
       ============================== */}
       <SEO
-        title="Contact Us | Capital Cleaning & Maintenance Islamabad & Rawalpindi"
-        description="Contact Capital Cleaning & Maintenance for Home Deep Cleaning, Office Cleaning, Sofa Cleaning, Carpet Cleaning, Mattress Cleaning, Water Tank Cleaning, Pest Control, Bed Bug Control, Termite Control, Cockroach Control, Painting, Plumbing and Electrical Services in Islamabad & Rawalpindi."
-        keywords="Contact Cleaning Services Islamabad, Cleaning Services Rawalpindi, Pest Control Islamabad, Pest Control Rawalpindi, Bed Bug Control Islamabad, Termite Control Islamabad, Cockroach Control Islamabad, Home Deep Cleaning Islamabad, Sofa Cleaning Islamabad, Carpet Cleaning Rawalpindi, Water Tank Cleaning Islamabad"
-        url="https://capitalcleaning.site/contact"
+        title={`Contact Us | Capital Cleaning & Maintenance ${cityInfo.cityName}`}
+        description={`Contact Capital Cleaning & Maintenance for Home Deep Cleaning, Office Cleaning, Sofa Cleaning, Carpet Cleaning, Mattress Cleaning, Water Tank Cleaning, Solar Panel Cleaning, Painting, Plumbing and Electrical Services in ${cityInfo.cityName}.`}
+        keywords={`Contact Cleaning Services Lahore, Cleaning Services Islamabad, Cleaning Services Rawalpindi, Home Deep Cleaning Lahore, Sofa Cleaning Lahore, Carpet Cleaning Lahore, Water Tank Cleaning Lahore, Solar Panel Cleaning`}
+        url={`https://capitalcleaning.site${location.pathname}`}
       />
 
       <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 px-4 py-12">
@@ -112,15 +105,14 @@ const ContactUs = () => {
           </h1>
 
           <p className="text-blue-600 font-semibold mt-2 text-lg">
-            Islamabad & Rawalpindi
+            {cityInfo.cityName}
           </p>
 
           <p className="text-gray-600 mt-5 text-lg leading-8">
             Capital Cleaning & Maintenance provides professional Home Deep
             Cleaning, Office Cleaning, Sofa Cleaning, Carpet Cleaning, Mattress
-            Cleaning, Water Tank Cleaning, Pest Control, Bed Bug Control,
-            Termite Control, Cockroach Control, Painting, Plumbing and
-            Electrical Services in Islamabad & Rawalpindi.
+            Cleaning, Water Tank Cleaning, Solar Panel Cleaning, Painting,
+            Plumbing, and Electrical Services in Lahore, Islamabad & Rawalpindi.
           </p>
 
           {/* Hero Buttons */}
@@ -139,12 +131,12 @@ const ContactUs = () => {
 
             {/* Call */}
             <a
-              href="tel:+923137332085"
+              href={`tel:${cityInfo.phone.replace(/[^0-9+]/g, "")}`}
               onClick={trackCallConversion}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold flex items-center gap-3 transition"
             >
               <FaPhoneAlt />
-              Call Now
+              Call: {cityInfo.phone}
             </a>
           </div>
         </motion.div>
@@ -177,7 +169,25 @@ const ContactUs = () => {
                 <div className="w-full">
                   <h3 className="font-semibold text-lg mb-3">Service Areas</h3>
 
-                  <div className="grid sm:grid-cols-2 gap-4 text-gray-600">
+                  <div className="grid sm:grid-cols-3 gap-4 text-gray-600">
+                    {/* Lahore */}
+                    <div>
+                      <h4 className="font-semibold text-blue-600 mb-2">
+                        Lahore
+                      </h4>
+
+                      <ul className="space-y-1 text-sm">
+                        <li>✓ DHA Lahore (Ph 1-9)</li>
+                        <li>✓ Gulberg</li>
+                        <li>✓ Bahria Town</li>
+                        <li>✓ Johar Town</li>
+                        <li>✓ Model Town</li>
+                        <li>✓ Askari</li>
+                        <li>✓ Cantt</li>
+                        <li>✓ Lake City</li>
+                      </ul>
+                    </div>
+
                     {/* Islamabad */}
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
@@ -185,21 +195,13 @@ const ContactUs = () => {
                       </h4>
 
                       <ul className="space-y-1 text-sm">
-                        <li>✓ F-6</li>
-                        <li>✓ F-7</li>
-                        <li>✓ F-8</li>
-                        <li>✓ F-10</li>
-                        <li>✓ F-11</li>
-                        <li>✓ G-9</li>
-                        <li>✓ G-10</li>
-                        <li>✓ G-11</li>
-                        <li>✓ G-13</li>
-                        <li>✓ E-11</li>
-                        <li>✓ I-8</li>
-                        <li>✓ I-9</li>
+                        <li>✓ F-6 / F-7 / F-8</li>
+                        <li>✓ F-10 / F-11</li>
+                        <li>✓ G-9 / G-10 / G-11</li>
+                        <li>✓ E-11 / G-13</li>
+                        <li>✓ I-8 / I-9</li>
                         <li>✓ DHA Islamabad</li>
-                        <li>✓ Bahria Enclave</li>
-                        <li>✓ Bani Gala</li>
+                        <li>✓ Gulberg Greens</li>
                       </ul>
                     </div>
 
@@ -210,20 +212,13 @@ const ContactUs = () => {
                       </h4>
 
                       <ul className="space-y-1 text-sm">
-                        <li>✓ Bahria Town</li>
+                        <li>✓ Bahria Town (Ph 1-8)</li>
                         <li>✓ DHA Phase 1–5</li>
-                        <li>✓ Askari 10</li>
-                        <li>✓ Askari 14</li>
-                        <li>✓ Gulraiz Housing Scheme</li>
+                        <li>✓ Askari 10 / 14</li>
                         <li>✓ Chaklala Scheme</li>
                         <li>✓ Satellite Town</li>
-                        <li>✓ Saddar</li>
-                        <li>✓ Westridge</li>
-                        <li>✓ Lalazar</li>
-                        <li>✓ Peshawar Road</li>
+                        <li>✓ Saddar & Westridge</li>
                         <li>✓ Adyala Road</li>
-                        <li>✓ Commercial Market</li>
-                        <li>✓ Gulistan Colony</li>
                       </ul>
                     </div>
                   </div>
@@ -234,7 +229,7 @@ const ContactUs = () => {
                   PHONE
               ============================== */}
               <a
-                href="tel:+923137332085"
+                href={`tel:${cityInfo.phone.replace(/[^0-9+]/g, "")}`}
                 onClick={trackCallConversion}
                 className="flex items-start gap-4 bg-gray-50 rounded-xl p-4 hover:bg-blue-50 transition"
               >
@@ -243,7 +238,7 @@ const ContactUs = () => {
                 <div>
                   <h3 className="font-semibold">Phone Number</h3>
 
-                  <p className="text-gray-600">+92 313 7332085</p>
+                  <p className="text-gray-600">{cityInfo.phone}</p>
                 </div>
               </a>
 
@@ -293,10 +288,10 @@ const ContactUs = () => {
               <ul className="space-y-3">
                 <li>✔ Experienced Cleaning Professionals</li>
                 <li>✔ Same Day Service Available</li>
-                <li>✔ Affordable Prices</li>
+                <li>✔ Affordable & Transparent Pricing</li>
                 <li>✔ Eco-Friendly Cleaning Products</li>
-                <li>✔ Professional Pest Control Services</li>
                 <li>✔ Residential & Commercial Services</li>
+                <li>✔ Serving Lahore, Islamabad & Rawalpindi</li>
               </ul>
             </div>
           </div>
@@ -314,17 +309,23 @@ const ContactUs = () => {
                   INTERNAL SERVICE LINKS
               ============================== */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {services.map((service) => (
-                  <Link
-                    key={service.slug}
-                    to={`/service/${service.slug}`}
-                    className="group bg-blue-50 rounded-xl p-4 font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition flex items-center justify-between"
-                  >
-                    <span>✓ {service.title}</span>
+                {services.map((service) => {
+                  const targetPath = isLahore
+                    ? `/lahore/service/${service.slug}`
+                    : `/service/${service.slug}`;
 
-                    <FaArrowRight className="text-blue-500 text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
-                  </Link>
-                ))}
+                  return (
+                    <Link
+                      key={service.slug}
+                      to={targetPath}
+                      className="group bg-blue-50 rounded-xl p-4 font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition flex items-center justify-between"
+                    >
+                      <span>✓ {service.title}</span>
+
+                      <FaArrowRight className="text-blue-500 text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* ==============================
@@ -352,8 +353,8 @@ const ContactUs = () => {
               <h2 className="text-3xl font-bold">Need Professional Service?</h2>
 
               <p className="mt-3 text-blue-100">
-                Contact our expert team today for professional cleaning, pest
-                control and maintenance services in Islamabad & Rawalpindi.
+                Contact our expert team today for professional cleaning and
+                maintenance services in {cityInfo.cityName}.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -371,7 +372,7 @@ const ContactUs = () => {
 
                 {/* Phone */}
                 <a
-                  href="tel:+923137332085"
+                  href={`tel:${cityInfo.phone.replace(/[^0-9+]/g, "")}`}
                   onClick={trackCallConversion}
                   className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-3 rounded-xl font-semibold flex items-center gap-3 transition"
                 >

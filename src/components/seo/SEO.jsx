@@ -26,6 +26,10 @@ export default function SEO({
     areaServed: [
       {
         "@type": "City",
+        name: "Lahore",
+      },
+      {
+        "@type": "City",
         name: "Islamabad",
       },
       {
@@ -62,6 +66,10 @@ export default function SEO({
       },
 
       areaServed: [
+        {
+          "@type": "City",
+          name: "Lahore",
+        },
         {
           "@type": "City",
           name: "Islamabad",
@@ -133,7 +141,7 @@ export default function SEO({
 
       <meta
         property="og:image:alt"
-        content={`${serviceName} in Islamabad and Rawalpindi`}
+        content={`${serviceName} in Lahore, Islamabad and Rawalpindi`}
       />
 
       <meta property="og:site_name" content="Capital Cleaning & Maintenance" />
@@ -152,7 +160,7 @@ export default function SEO({
 
       <meta
         name="twitter:image:alt"
-        content={`${serviceName} in Islamabad and Rawalpindi`}
+        content={`${serviceName} in Lahore, Islamabad and Rawalpindi`}
       />
 
       {/* =========================
