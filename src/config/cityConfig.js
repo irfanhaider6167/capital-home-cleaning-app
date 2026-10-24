@@ -9,9 +9,9 @@ export const CITY_CONFIG = {
   },
   lahore: {
     cityName: "Lahore",
-    phone: "0313-7838413", // Yahan Lahore ka apna mobile/WhatsApp number lagayein
-    whatsappNumber: "923137838413", // Yahan Lahore ka apna mobile/WhatsApp number lagayein
-    whatsappLink: "https://wa.me/923137838413", // Yahan Lahore ka apna WhatsApp link lagayein
+    phone: "0311-7838413", // Yahan Lahore ka apna mobile/WhatsApp number lagayein
+    whatsappNumber: "923117838413", // Yahan Lahore ka apna mobile/WhatsApp number lagayein
+    whatsappLink: "https://wa.me/923117838413", // Yahan Lahore ka apna WhatsApp link lagayein
     areas:
       "DHA Lahore (Ph 1-9), Gulberg, Bahria Town Lahore, Johar Town, Model Town, Cantt, Askari, Lake City, Wapda Town, Faisal Town and surrounding areas",
   },
