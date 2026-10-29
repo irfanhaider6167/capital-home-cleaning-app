@@ -1,57 +1,68 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useLocation } from "react-router-dom";
+import { CITY_CONFIG } from "../config/cityConfig";
 
 function Hero() {
-  const slides = [
-    {
-      title: "Home Deep Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Professional home deep cleaning using quality solutions and professional equipment.",
-      image: "/images/deep-cleaning-a-final.webp",
-    },
-    {
-      title: "Sofa Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Professional sofa cleaning to remove stains, dust and unpleasant odors.",
-      image: "/images/sofa-after.webp",
-    },
-    {
-      title: "Carpet Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Deep carpet cleaning to refresh your carpets and improve indoor hygiene.",
-      image: "/images/carpet-after.webp",
-    },
-    {
-      title: "Mattress Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Professional mattress cleaning to remove dust, stains and unpleasant odors.",
-      image: "/images/mattress-after.webp",
-    },
-    {
-      title: "Water Tank Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Professional cleaning for underground and overhead water tanks.",
-      image: "/images/water-tank-after.webp",
-    },
-    {
-      title: "Solar Panel Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Professional cleaning for solar panels to maintain their performance and efficiency.",
-      image: "/images/solar-panel-cleaning-after.webp",
-    },
-    {
-      title: "Office Cleaning",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Reliable cleaning solutions for offices, workplaces and commercial spaces.",
-      image: "/images/office-cleaning-a-final.jpg",
-    },
-    {
-      title: "Plumbing Services",
-      highlight: "Lahore, Islamabad & Rawalpindi",
-      desc: "Professional plumbing repair, installation and maintenance services.",
-      image: "/images/plumbring-a-final.jpg",
-    },
-  ];
+  const location = useLocation();
+
+  // Determine active city config based on URL path
+  const isLahore = location.pathname.startsWith("/lahore");
+  const cityInfo = isLahore ? CITY_CONFIG.lahore : CITY_CONFIG.isb_rwp;
+
+  const slides = useMemo(
+    () => [
+      {
+        title: "Home Deep Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Professional home deep cleaning using quality solutions and professional equipment.",
+        image: "/images/deep-cleaning-a-final.webp",
+      },
+      {
+        title: "Sofa Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Professional sofa cleaning to remove stains, dust and unpleasant odors.",
+        image: "/images/sofa-after.webp",
+      },
+      {
+        title: "Carpet Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Deep carpet cleaning to refresh your carpets and improve indoor hygiene.",
+        image: "/images/carpet-after.webp",
+      },
+      {
+        title: "Mattress Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Professional mattress cleaning to remove dust, stains and unpleasant odors.",
+        image: "/images/mattress-after.webp",
+      },
+      {
+        title: "Water Tank Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Professional cleaning for underground and overhead water tanks.",
+        image: "/images/water-tank-after.webp",
+      },
+      {
+        title: "Solar Panel Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Professional cleaning for solar panels to maintain their performance and efficiency.",
+        image: "/images/solar-panel-cleaning-after.webp",
+      },
+      {
+        title: "Office Cleaning",
+        highlight: cityInfo.cityName,
+        desc: "Reliable cleaning solutions for offices, workplaces and commercial spaces.",
+        image: "/images/office-cleaning-a-final.jpg",
+      },
+      {
+        title: "Plumbing Services",
+        highlight: cityInfo.cityName,
+        desc: "Professional plumbing repair, installation and maintenance services.",
+        image: "/images/plumbring-a-final.jpg",
+      },
+    ],
+    [cityInfo.cityName],
+  );
 
   const [current, setCurrent] = useState(0);
 
@@ -95,7 +106,7 @@ function Hero() {
               >
                 <img
                   src={slides[current].image}
-                  alt={`${slides[current].title} in Lahore, Islamabad and Rawalpindi`}
+                  alt={`${slides[current].title} in ${cityInfo.cityName}`}
                   fetchPriority={current === 0 ? "high" : "auto"}
                   className="block h-[280px] w-full object-cover sm:h-[430px] lg:h-[500px]"
                 />

@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // Check if we are in the Lahore section
+  const isLahore = location.pathname.startsWith("/lahore");
+
+  // Base path for navigation links
+  const basePath = isLahore ? "/lahore" : "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +24,11 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const linkStyle = ({ isActive }) =>
     `relative transition font-medium ${
@@ -35,10 +47,10 @@ function Navbar() {
       }`}
       aria-label="Main navigation"
     >
-      <div className="px-2 py-6 h-10 flex justify-between items-center max-w-7xl mx-auto">
+      <div className="px-4 py-4 md:py-6 h-16 md:h-20 flex justify-between items-center max-w-7xl mx-auto">
         {/* PREMIUM LOGO - LINKS TO HOMEPAGE */}
         <NavLink
-          to="/"
+          to={basePath || "/"}
           aria-label="Capital Cleaning & Maintenance - Home"
           className="flex flex-col items-center leading-none"
         >
@@ -46,11 +58,11 @@ function Navbar() {
             CAPITAL
           </h2>
 
-          <div className="flex items-center justify-center gap-2 mt-0.5">
+          <div className="flex items-center justify-center gap-2 mt-1">
             <div className="w-6 h-[2px] bg-[#1D4ED8] rounded-full"></div>
 
             <p
-              className="text-xs md:text-sm font-extrabold tracking-[5px] leading-none
+              className="text-[10px] md:text-xs font-extrabold tracking-[4px] md:tracking-[5px] leading-none
               bg-gradient-to-r from-[#1D4ED8] via-[#3B82F6] to-[#60A5FA]
               text-transparent bg-clip-text"
             >
@@ -62,27 +74,27 @@ function Navbar() {
         </NavLink>
 
         {/* DESKTOP MENU */}
-        <ul className="hidden md:!flex gap-6 items-center text-sm">
+        <ul className="hidden md:!flex gap-8 items-center text-sm lg:text-base">
           <li>
-            <NavLink to="/" className={linkStyle}>
+            <NavLink to={basePath || "/"} className={linkStyle} end>
               Home
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/services" className={linkStyle}>
+            <NavLink to={`${basePath}/services`} className={linkStyle}>
               Services
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/about" className={linkStyle}>
+            <NavLink to={`${basePath}/about`} className={linkStyle}>
               About
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/contact" className={linkStyle}>
+            <NavLink to={`${basePath}/contact`} className={linkStyle}>
               Contact
             </NavLink>
           </li>
@@ -94,7 +106,7 @@ function Navbar() {
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
-          className="md:hidden text-3xl transition-colors duration-300 text-[#1D4ED8] hover:text-blue-700"
+          className="md:hidden text-2xl p-2 focus:outline-none transition-colors duration-300 text-[#1D4ED8] hover:text-blue-700"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? "✖" : "☰"}
@@ -104,39 +116,44 @@ function Navbar() {
       {/* MOBILE MENU */}
       <div
         id="mobile-navigation"
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white border-t border-gray-100 px-6 py-4 space-y-3 shadow-md text-sm">
+        <div className="bg-white border-t border-gray-100 px-6 py-4 space-y-4 shadow-xl text-base font-medium">
           <NavLink
-            to="/"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700 transition-colors"
+            to={basePath || "/"}
+            end
+            className={({ isActive }) =>
+              `block transition-colors ${isActive ? "text-blue-700 font-bold" : "text-gray-600 hover:text-blue-700"}`
+            }
           >
             Home
           </NavLink>
 
           <NavLink
-            to="/services"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700 transition-colors"
+            to={`${basePath}/services`}
+            className={({ isActive }) =>
+              `block transition-colors ${isActive ? "text-blue-700 font-bold" : "text-gray-600 hover:text-blue-700"}`
+            }
           >
             Services
           </NavLink>
 
           <NavLink
-            to="/about"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700 transition-colors"
+            to={`${basePath}/about`}
+            className={({ isActive }) =>
+              `block transition-colors ${isActive ? "text-blue-700 font-bold" : "text-gray-600 hover:text-blue-700"}`
+            }
           >
             About
           </NavLink>
 
           <NavLink
-            to="/contact"
-            onClick={() => setIsOpen(false)}
-            className="block text-gray-600 hover:text-blue-700 transition-colors"
+            to={`${basePath}/contact`}
+            className={({ isActive }) =>
+              `block transition-colors ${isActive ? "text-blue-700 font-bold" : "text-gray-600 hover:text-blue-700"}`
+            }
           >
             Contact
           </NavLink>

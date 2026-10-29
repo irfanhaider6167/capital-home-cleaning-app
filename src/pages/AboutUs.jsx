@@ -71,17 +71,17 @@ const AboutUs = () => {
     <>
       <Helmet>
         <title>
-          About Capital Cleaning & Maintenance | Lahore, Islamabad & Rawalpindi
+          About Capital Cleaning & Maintenance | {cityInfo.cityName}
         </title>
 
         <meta
           name="description"
-          content="Learn about Capital Cleaning & Maintenance. We provide professional cleaning and maintenance services in Lahore, Islamabad & Rawalpindi, including home deep cleaning, sofa, carpet, mattress, water tank, and solar panel cleaning, painting, plumbing, and electrical services."
+          content={`Learn about Capital Cleaning & Maintenance. We provide professional cleaning and maintenance services in ${cityInfo.cityName}, including home deep cleaning, sofa, carpet, mattress, water tank, and solar panel cleaning, painting, plumbing, and electrical services.`}
         />
 
         <meta
           name="keywords"
-          content="About Capital Cleaning, cleaning company Lahore, cleaning company Islamabad, cleaning company Rawalpindi, maintenance services Lahore, maintenance services Islamabad, maintenance services Rawalpindi, sofa cleaning Lahore, carpet cleaning Lahore, home deep cleaning Lahore, mattress cleaning Lahore, water tank cleaning Lahore, solar panel cleaning Lahore, painting services, plumbing services, electrical services"
+          content={`About Capital Cleaning, cleaning company ${cityInfo.cityName}, maintenance services ${cityInfo.cityName}, sofa cleaning ${cityInfo.cityName}, carpet cleaning ${cityInfo.cityName}, home deep cleaning ${cityInfo.cityName}, painting services, plumbing services, electrical services`}
         />
 
         <meta name="robots" content="index, follow" />
@@ -93,12 +93,12 @@ const AboutUs = () => {
 
         <meta
           property="og:title"
-          content="About Capital Cleaning & Maintenance"
+          content={`About Capital Cleaning & Maintenance | ${cityInfo.cityName}`}
         />
 
         <meta
           property="og:description"
-          content="Professional cleaning and maintenance services in Lahore, Islamabad & Rawalpindi."
+          content={`Professional cleaning and maintenance services in ${cityInfo.cityName}.`}
         />
 
         <meta
@@ -125,9 +125,9 @@ const AboutUs = () => {
           </h1>
 
           <p className="text-gray-600 mt-5 text-lg leading-relaxed">
-            Professional Cleaning & Maintenance Services in Lahore, Islamabad,
-            and Rawalpindi. We provide reliable solutions for homes, apartments,
-            offices, and commercial properties.
+            Professional Cleaning & Maintenance Services in {cityInfo.cityName}.
+            We provide reliable solutions for homes, apartments, offices, and
+            commercial properties.
           </p>
         </motion.div>
 
@@ -136,6 +136,7 @@ const AboutUs = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="max-w-6xl mx-auto bg-white shadow-lg rounded-3xl p-8 md:p-12 border border-gray-100"
         >
           {/* Who We Are */}
@@ -143,6 +144,7 @@ const AboutUs = () => {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="mb-10"
           >
             <h2 className="text-3xl font-bold text-[#111827] mb-5">
@@ -151,9 +153,9 @@ const AboutUs = () => {
 
             <p className="text-gray-600 leading-relaxed">
               Capital Cleaning & Maintenance is a premier service company
-              serving Lahore, Islamabad, and Rawalpindi. We provide professional
-              cleaning and maintenance solutions for homes, apartments, offices,
-              and commercial properties.
+              serving {cityInfo.cityName}. We provide professional cleaning and
+              maintenance solutions for homes, apartments, offices, and
+              commercial properties.
               <br />
               <br />
               Our cleaning services include sofa cleaning, carpet cleaning,
@@ -168,10 +170,20 @@ const AboutUs = () => {
               residential and commercial spaces.
               <br />
               <br />
-              We proudly serve customers across major locations including DHA
-              Lahore, Gulberg, Bahria Town Lahore, Bahria Town Rawalpindi, DHA
-              Islamabad, F & G Sectors, I-8, Gulberg Islamabad, and surrounding
-              areas.
+              {/* Dynamic Locations Text */}
+              {isLahore ? (
+                <>
+                  We proudly serve customers across major locations including
+                  DHA Lahore (Phases 1-9), Gulberg, Bahria Town, Johar Town,
+                  Model Town, Askari, Cantt, Lake City, and surrounding areas.
+                </>
+              ) : (
+                <>
+                  We proudly serve customers across major locations including
+                  DHA Islamabad, Bahria Town Rawalpindi, F & G Sectors, I-8,
+                  Gulberg Greens, Saddar, Askari, and surrounding areas.
+                </>
+              )}
             </p>
           </motion.div>
 
@@ -195,13 +207,12 @@ const AboutUs = () => {
                   >
                     <span className="flex items-center gap-2">
                       <span className="text-green-600 font-bold">✔</span>
-
                       <span className="group-hover:text-[#1D4ED8] group-hover:font-semibold transition">
                         {service.name}
                       </span>
                     </span>
 
-                    <span className="text-[#1D4ED8] opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="text-[#1D4ED8] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
                       →
                     </span>
                   </Link>
@@ -221,66 +232,88 @@ const AboutUs = () => {
           {/* Mission & Vision */}
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             <motion.div
-              whileHover={{ scale: 1.04 }}
-              className="bg-[#F3F6FF] p-6 rounded-2xl shadow-sm"
+              whileHover={{ scale: 1.02 }}
+              className="bg-[#F3F6FF] p-6 rounded-2xl shadow-sm border border-transparent hover:border-blue-200 transition-colors"
             >
               <h3 className="text-xl font-bold text-[#1D4ED8] mb-3">
                 Our Mission
               </h3>
-
               <p className="text-gray-600">
                 To provide reliable, high-quality, and affordable cleaning and
-                maintenance solutions across Lahore, Islamabad, and Rawalpindi
+                maintenance solutions across {cityInfo.cityName}
                 while ensuring complete customer satisfaction and convenience.
               </p>
             </motion.div>
 
             <motion.div
-              whileHover={{ scale: 1.04 }}
-              className="bg-[#F3F6FF] p-6 rounded-2xl shadow-sm"
+              whileHover={{ scale: 1.02 }}
+              className="bg-[#F3F6FF] p-6 rounded-2xl shadow-sm border border-transparent hover:border-blue-200 transition-colors"
             >
               <h3 className="text-xl font-bold text-[#1D4ED8] mb-3">
                 Our Vision
               </h3>
-
               <p className="text-gray-600">
-                To be the most trusted and preferred service provider in Lahore,
-                Islamabad, and Rawalpindi by delivering top-tier cleaning and
+                To be the most trusted and preferred service provider in{" "}
+                {cityInfo.cityName} by delivering top-tier cleaning and
                 maintenance services with professional standards.
               </p>
             </motion.div>
           </div>
 
           {/* Why Choose Us */}
-          <div className="bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] text-white p-8 rounded-2xl">
+          <div className="bg-gradient-to-r from-[#1D4ED8] to-[#2563EB] text-white p-8 rounded-2xl shadow-lg">
             <h3 className="text-2xl font-bold mb-5">
               Why Choose Capital Cleaning & Maintenance?
             </h3>
 
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <p>✔ Trained & Vetted Service Professionals</p>
-              <p>✔ Advanced Cleaning Equipment & Methods</p>
-              <p>✔ Residential & Commercial Deep Cleaning</p>
-              <p>✔ Painting, Plumbing & Electrical Services</p>
-              <p>✔ Full Lahore, Islamabad & Rawalpindi Coverage</p>
-              <p>✔ Transparent & Affordable Pricing</p>
-              <p>✔ Dedicated Support & Quick Response</p>
-              <p>✔ Instant WhatsApp Booking Support</p>
+            <div className="grid md:grid-cols-2 gap-4 text-sm md:text-base">
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Trained & Vetted Service Professionals
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Advanced Cleaning Equipment & Methods
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Residential & Commercial Deep Cleaning
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Painting, Plumbing & Electrical Services
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Full {cityInfo.cityName} Coverage
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Transparent & Affordable Pricing
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Dedicated Support & Quick Response
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="bg-white/20 rounded-full p-1 text-xs">✔</span>
+                Instant WhatsApp Booking Support
+              </p>
             </div>
           </div>
 
           {/* CTA */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-center mt-10"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="text-center mt-12"
           >
             <a
               href={whatsappLink}
               onClick={trackWhatsAppConversion}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#1D4ED8] text-white px-10 py-4 rounded-xl shadow-md hover:bg-blue-700 transition font-semibold"
+              className="inline-block bg-[#1D4ED8] text-white px-10 py-4 rounded-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 font-semibold text-lg"
             >
               Book Your Service Today 🚀
             </a>

@@ -15,7 +15,6 @@ export const services = [
       "Professional Deep Cleaning",
     ],
   },
-
   {
     slug: "office-cleaning",
     title: "Office Cleaning",
@@ -32,7 +31,6 @@ export const services = [
       "Trash Removal",
     ],
   },
-
   {
     slug: "sofa-cleaning",
     title: "Sofa Cleaning",
@@ -49,7 +47,6 @@ export const services = [
       "Fast Drying Process",
     ],
   },
-
   {
     slug: "carpet-cleaning",
     title: "Carpet Cleaning",
@@ -66,7 +63,6 @@ export const services = [
       "Fast Drying Process",
     ],
   },
-
   {
     slug: "mattress-cleaning",
     title: "Mattress Cleaning",
@@ -83,7 +79,6 @@ export const services = [
       "Fast Drying Process",
     ],
   },
-
   {
     slug: "water-tank-cleaning",
     title: "Water Tank Cleaning",
@@ -100,7 +95,6 @@ export const services = [
       "Underground & Overhead Tank Cleaning",
     ],
   },
-
   {
     slug: "solar-panel-cleaning",
     title: "Solar Panel Cleaning",
@@ -117,10 +111,9 @@ export const services = [
       "High-Efficiency Cleaning Solutions",
     ],
   },
-
   {
     slug: "painting",
-    title: "Painting",
+    title: "Painting Services",
     desc: "Capital Cleaning & Maintenance provides professional Painting services for homes, offices, apartments, and commercial buildings. We deliver smooth finishing, quality workmanship, and attractive results.",
     hero: "/images/paint-a-final.jpg",
     before: "/images/paint-b-final.jpg",
@@ -134,10 +127,9 @@ export const services = [
       "Premium Finish",
     ],
   },
-
   {
     slug: "plumbing",
-    title: "Plumbing",
+    title: "Plumbing Services",
     desc: "Capital Cleaning & Maintenance provides professional Plumbing services including leak repairs, pipe installation, bathroom fittings, kitchen plumbing, and maintenance solutions for homes and offices.",
     hero: "/images/plumbring-a-final.jpg",
     before: "/images/plumbring-b-final.jpg",
@@ -151,10 +143,9 @@ export const services = [
       "Drain Cleaning",
     ],
   },
-
   {
     slug: "electrical",
-    title: "Electrical",
+    title: "Electrical Services",
     desc: "Capital Cleaning & Maintenance provides professional Electrical services including installation, repair, wiring, lighting, and maintenance solutions for homes, offices, and commercial properties.",
     hero: "/images/electrition-a-final.webp",
     before: "/images/electrition-b-final.jpg",
