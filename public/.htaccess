@@ -1,11 +1,17 @@
 RewriteEngine On
-
 RewriteBase /
 
+# Force WWW and HTTPS
+
+RewriteCond %{HTTP_HOST} ^capitalcleaning\.site [NC]
+RewriteRule ^(.\*)$ https://www.capitalcleaning.site/$1 [R=301,L]
+
 # Redirect old incorrect URL to the correct Plumbing URL
-RewriteRule ^service/plumbring/?$ /service/plumbing [R=301,L]
+
+<!-- RewriteRule ^service/plumbring/?$ /service/plumbing [R=301,L] -->
+
+# React Router Fallback
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
 RewriteRule ^ index.html [L]
